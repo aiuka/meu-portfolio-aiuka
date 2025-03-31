@@ -1,20 +1,15 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Sidebar from '../components/Sidebar';
 import About from '../components/About';
 import Resume from '../components/Resume';
 import Portfolio from '../components/Portfolio';
 import Blog from '../components/Blog';
 import Contact from '../components/Contact';
-
-type TabType = 'about' | 'resume' | 'portfolio' | 'blog' | 'contact';
+import { useTabNavigation, TabType } from '../hooks/useTabNavigation';
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState<TabType>('about');
-
-  const handleTabChange = (tab: TabType) => {
-    setActiveTab(tab);
-  };
+  const { activeTab, handleTabChange } = useTabNavigation('about');
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 md:p-8">

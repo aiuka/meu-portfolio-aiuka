@@ -1,6 +1,7 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import ProjectCard from './ProjectCard';
+import { useProjectFilter } from '../hooks/useProjectFilter';
 
 const categories = ["All", "Web Design", "Applications", "Web Development"];
 
@@ -53,8 +54,12 @@ const projects = [
 ];
 
 const Portfolio = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [showMobileFilter, setShowMobileFilter] = useState(false);
+  const { 
+    activeCategory, 
+    showMobileFilter, 
+    handleFilterChange, 
+    toggleMobileFilter 
+  } = useProjectFilter("All");
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
@@ -77,7 +82,7 @@ const Portfolio = () => {
                   ? 'bg-portfolio-primary-accent text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => handleFilterChange(category)}
             >
               {category}
             </button>
@@ -88,7 +93,7 @@ const Portfolio = () => {
         <div className="md:hidden mb-6">
           <button
             className="w-full flex items-center justify-between p-3 bg-white rounded-lg shadow-sm"
-            onClick={() => setShowMobileFilter(!showMobileFilter)}
+            onClick={toggleMobileFilter}
           >
             <span className="font-medium text-gray-700">
               {activeCategory === "All" ? "Select Category" : activeCategory}
@@ -117,10 +122,7 @@ const Portfolio = () => {
                       ? 'bg-indigo-50 text-portfolio-primary-accent font-medium'
                       : 'hover:bg-gray-50 text-gray-700'
                   }`}
-                  onClick={() => {
-                    setActiveCategory(category);
-                    setShowMobileFilter(false);
-                  }}
+                  onClick={() => handleFilterChange(category)}
                 >
                   {category}
                 </button>

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Mail, 
   Phone, 
@@ -11,9 +11,10 @@ import {
   Twitter,
   Instagram
 } from 'lucide-react';
+import { useSidebarToggle } from '../hooks/useSidebarToggle';
 
 const Sidebar = () => {
-  const [showContacts, setShowContacts] = useState(false);
+  const { isOpen, toggleSidebar } = useSidebarToggle();
 
   return (
     <aside className="lg:w-80 md:w-72 w-full bg-white shadow-md rounded-xl overflow-hidden">
@@ -31,16 +32,16 @@ const Sidebar = () => {
           <p className="text-gray-500 mb-4">Web Developer</p>
           
           <button 
-            onClick={() => setShowContacts(!showContacts)}
+            onClick={toggleSidebar}
             className="flex items-center gap-2 text-sm font-medium text-portfolio-primary-accent hover:text-indigo-700 transition-colors"
           >
-            <span>{showContacts ? 'Hide Contacts' : 'Show Contacts'}</span>
-            {showContacts ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            <span>{isOpen ? 'Hide Contacts' : 'Show Contacts'}</span>
+            {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
         </div>
       </div>
 
-      {showContacts && (
+      {isOpen && (
         <div className="px-6 pb-6">
           <div className="h-px bg-gray-200 my-4"></div>
           
