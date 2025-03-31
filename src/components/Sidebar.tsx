@@ -52,8 +52,8 @@ const Sidebar = () => {
               </div>
               <div>
                 <p className="text-xs text-gray-500">Email</p>
-                <a href="mailto:richard@example.com" className="text-sm text-gray-700 hover:text-portfolio-primary-accent">
-                  richard@example.com
+                <a href="mailto:aiuka.machado@gmail.com" className="text-sm text-gray-700 hover:text-portfolio-primary-accent">
+                  aiuka.machado@gmail.com
                 </a>
               </div>
             </li>
@@ -64,8 +64,8 @@ const Sidebar = () => {
               </div>
               <div>
                 <p className="text-xs text-gray-500">Phone</p>
-                <a href="tel:+12133522795" className="text-sm text-gray-700 hover:text-portfolio-primary-accent">
-                  +1 (213) 352-2795
+                <a href="tel:+244923676121" className="text-sm text-gray-700 hover:text-portfolio-primary-accent">
+                  +244 923676121
                 </a>
               </div>
             </li>
@@ -76,7 +76,7 @@ const Sidebar = () => {
               </div>
               <div>
                 <p className="text-xs text-gray-500">Birthday</p>
-                <p className="text-sm text-gray-700">June 23, 1982</p>
+                <p className="text-sm text-gray-700">August 17, 1977</p>
               </div>
             </li>
             
@@ -86,7 +86,7 @@ const Sidebar = () => {
               </div>
               <div>
                 <p className="text-xs text-gray-500">Location</p>
-                <p className="text-sm text-gray-700">Sacramento, California, USA</p>
+                <p className="text-sm text-gray-700">Luanda, Luanda, Angola</p>
               </div>
             </li>
           </ul>
