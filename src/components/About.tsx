@@ -11,8 +11,9 @@ const About = () => {
 
       <section>
         <div className="text-gray-600 space-y-4">
-          <p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p>
-          <p>My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</p>
+          <p>I am an experienced Telecommunications and Information Technology engineer with over 15 years of experience in leading companies such as Movicel Telecommunications and Angola Telecom. My expertise lies in the implementation, operation, and maintenance of advanced network infrastructures, working with technologies such as BGP, MPLS, VLANs, and firewalls.</p>
+          <p>I have a strong background in leading technical teams, managing SLAs, monitoring service performance, and escalating critical incidents. My approach is driven by operational efficiency and continuous innovation, ensuring secure, stable, and high-performance networks.</p>
+          <p>Committed to ongoing development, I continuously expand my skills through certifications and specialized courses in networking, cybersecurity, and project management. My mission is to combine technical expertise with strategic vision to drive technological solutions that add value and transform businesses.</p>
         </div>
       </section>
 
