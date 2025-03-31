@@ -29,7 +29,7 @@ const Sidebar = () => {
           </div>
           
           <h1 className="text-xl font-semibold text-gray-800">Aiuka Machado</h1>
-          <p className="text-gray-500 mb-4">Web Developer</p>
+          <p className="text-gray-500 mb-4">IT Tech + Network Admin</p>
           
           <button 
             onClick={toggleSidebar}
