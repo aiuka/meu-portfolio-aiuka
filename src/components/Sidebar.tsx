@@ -23,12 +23,12 @@ const Sidebar = () => {
           <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-gray-100 mb-4">
             <img 
               src="https://i.postimg.cc/JzBWVhW4/my-avatar.png" 
-              alt="Richard Hanrick" 
+              alt="Aiuka Machado" 
               className="w-full h-full object-cover"
             />
           </div>
           
-          <h1 className="text-xl font-semibold text-gray-800">Richard Hanrick</h1>
+          <h1 className="text-xl font-semibold text-gray-800">Aiuka Machado</h1>
           <p className="text-gray-500 mb-4">Web Developer</p>
           
           <button 
