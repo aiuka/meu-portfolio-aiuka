@@ -5,7 +5,7 @@ import SkillBar from './SkillBar';
 
 const education = [
   {
-    title: 'University school of the arts',
+    title: 'Universidade Jean Piaget de Angola',
     period: '2008 - 2010',
     description: 'There I learnt a wide range of topics that are essential to understanding both the theory and practical aspects of computing. This involves programming fundamentals, computer architecture, operating systems, databases, software engineering, problem solving, collaboration and communication soft skills.'
   },
