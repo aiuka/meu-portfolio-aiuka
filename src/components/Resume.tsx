@@ -15,8 +15,8 @@ const education = [
     description: 'I chose my master degree in technology. There I deepened my knowledge, enhanced my skills in the area and learnt how to increase my career prospects in a competitive job market.'
   },
   {
-    title: 'High School of Art and Design',
-    period: '2003 - 2005',
+    title: 'Forest High School (Johannesburg, South Africa)',
+    period: '1997 - 1999',
     description: 'There I learnt foundational courses and computer sciences fundamentals. In the institution, I chose my specialization in web-development that involves front-end and back-end technologies, user interface designs and content management systems.'
   }
 ];
