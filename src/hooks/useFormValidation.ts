@@ -1,5 +1,6 @@
 
 import { useState, ChangeEvent, FormEvent } from 'react';
+import { toast } from 'sonner';
 
 interface FormData {
   [key: string]: string;
@@ -28,6 +29,9 @@ export const useFormValidation = (initialState: FormData) => {
     if (isValid) {
       // Handle the form submission here
       console.log('Form submitted:', formData);
+      
+      // Show success notification
+      toast.success('Message sent successfully! We will get back to you soon.');
       
       // Reset form after submission
       setFormData(initialState);
