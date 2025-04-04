@@ -2,6 +2,20 @@
 import React from 'react';
 import TimelineItem from './TimelineItem';
 import SkillBar from './SkillBar';
+import { Globe, Book, HeartPulse, Award } from 'lucide-react';
+import { 
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle 
+} from '@/components/ui/card';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const education = [
   {
@@ -46,6 +60,54 @@ const skills = [
   { name: 'Ferramentas de Monitoramento (Zabbix, Grafana)', percentage: 75 },
   { name: 'Implementação de Firewalls', percentage: 85 },
   { name: 'Virtualização (VMware)', percentage: 70 }
+];
+
+const languages = [
+  { 
+    name: 'Português',
+    type: 'Nativo',
+    proficiencies: { 
+      listening: 100, 
+      reading: 100, 
+      writing: 100, 
+      speaking: 100,
+      interaction: 100
+    }
+  },
+  { 
+    name: 'Inglês',
+    type: 'Fluente',
+    proficiencies: { 
+      listening: 90, 
+      reading: 90, 
+      writing: 80, 
+      speaking: 90,
+      interaction: 90
+    }
+  }
+];
+
+const interests = [
+  {
+    title: 'Corrida e Observação da Natureza',
+    description: 'Tenho paixão por correr ao ar livre e aproveitar a natureza ao meu redor. A corrida me proporciona não apenas bem-estar físico, mas também uma sensação de conexão com o ambiente natural que contribui para meu equilíbrio e tranquilidade.',
+    icon: 'running'
+  },
+  {
+    title: 'Leitura de Literatura Medieval',
+    description: 'Sou um entusiasta da literatura medieval Russa e Britânica. Através dessas obras, mergulho em mundos fascinantes, cheios de mitos, lendas e personagens marcantes, que me transportam para épocas passadas e despertam minha imaginação.',
+    icon: 'books'
+  },
+  {
+    title: 'Prática de Jiu Jitsu Brasileiro e MMA',
+    description: 'Apaixonado por artes marciais, pratico Jiu Jitsu Brasileiro e Mixed Martial Arts (MMA). Além de me desafiar fisicamente, essas disciplinas me ensinaram valores como respeito, disciplina e perseverança. Conquistei o título de terceiro lugar no campeonato nacional de BJJ.',
+    icon: 'martial-arts'
+  },
+  {
+    title: 'Voluntariado',
+    description: 'Dedico parte do meu tempo ao voluntariado na instituição Mizangalas, que apoia crianças de rua com habitação, educação e incentivo à prática de esportes.',
+    icon: 'volunteer'
+  }
 ];
 
 const Resume = () => {
@@ -107,40 +169,93 @@ const Resume = () => {
         </div>
       </section>
 
-      <section>
-        <h3 className="text-xl font-semibold text-gray-800 mb-6">Certificações e Treinamentos</h3>
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <ul className="list-disc pl-5 space-y-2 text-gray-600">
-            <li>MCSE - Damelin, África do Sul (1999-2000)</li>
-            <li>Formação em Sistemas e Redes (Windows 2000) - TOBE Angola (2001-2002)</li>
-            <li>Segurança da Informação - Synel Industries, Haia, Israel (2006)</li>
-            <li>Formação ICND (Interconnection Cisco Network Devices) - Multiredes, Luanda (2007)</li>
-            <li>Microsoft SQL Server 2005 - NSI Training Technology, Rio de Janeiro (2009)</li>
-            <li>Certified Ethical Hacker v12 - Koenig (2023)</li>
-            <li>AWS Cloud Technical Essentials (2023)</li>
-            <li>Architecting Solutions on AWS (2024)</li>
-            <li>Cybersecurity for Everyone - University of Maryland (2023)</li>
-            <li>IBM Cybersecurity Analyst Professional Certificate (2024)</li>
-          </ul>
+      <section className="animate-fade-in">
+        <div className="flex items-center gap-3 mb-6">
+          <Globe className="w-5 h-5 text-portfolio-primary-accent" />
+          <h3 className="text-xl font-semibold text-gray-800">Idiomas</h3>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {languages.map((language, index) => (
+            <Card key={index} className="overflow-hidden hover:shadow-md transition-shadow duration-300">
+              <CardHeader className="bg-gradient-to-r from-indigo-50 to-blue-50 pb-3">
+                <div className="flex justify-between items-center">
+                  <CardTitle className="text-lg font-medium">{language.name}</CardTitle>
+                  <CardDescription className="text-portfolio-primary-accent font-medium">
+                    {language.type}
+                  </CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <div className="space-y-3">
+                  <div className="grid grid-cols-5 gap-2">
+                    {Object.entries(language.proficiencies).map(([skill, level], idx) => (
+                      <div key={idx} className="flex flex-col items-center">
+                        <div className="w-full h-24 bg-gray-100 rounded-md relative mb-1">
+                          <div 
+                            className="absolute bottom-0 w-full bg-portfolio-primary-accent rounded-md transition-all duration-500"
+                            style={{ height: `${level}%`, opacity: 0.7 + (level / 300) }}
+                          ></div>
+                        </div>
+                        <span className="text-xs text-gray-600 capitalize">{skill}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="animate-fade-in">
+        <div className="flex items-center gap-3 mb-6">
+          <HeartPulse className="w-5 h-5 text-portfolio-primary-accent" />
+          <h3 className="text-xl font-semibold text-gray-800">Interesses</h3>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {interests.map((interest, index) => (
+            <Collapsible 
+              key={index} 
+              className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300"
+            >
+              <CollapsibleTrigger className="w-full text-left p-4 flex items-center gap-3 focus:outline-none">
+                <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                  {interest.icon === 'running' && <HeartPulse className="w-5 h-5 text-portfolio-primary-accent" />}
+                  {interest.icon === 'books' && <Book className="w-5 h-5 text-portfolio-primary-accent" />}
+                  {interest.icon === 'martial-arts' && <Award className="w-5 h-5 text-portfolio-primary-accent" />}
+                  {interest.icon === 'volunteer' && <Globe className="w-5 h-5 text-portfolio-primary-accent" />}
+                </div>
+                <h4 className="font-medium text-gray-800">{interest.title}</h4>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <div className="px-4 pb-4 pt-1 pl-[3.25rem]">
+                  <p className="text-gray-600 text-sm">{interest.description}</p>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          ))}
         </div>
       </section>
 
       <section>
-        <h3 className="text-xl font-semibold text-gray-800 mb-6">Idiomas e Interesses</h3>
+        <h3 className="text-xl font-semibold text-gray-800 mb-6">Certificações e Treinamentos</h3>
         <div className="bg-white rounded-lg shadow-sm p-6">
-          <div className="mb-4">
-            <h4 className="font-medium text-gray-800 mb-2">Idiomas</h4>
-            <p className="text-gray-600">Português (nativo), Inglês (fluente: compreensão, leitura, escrita e conversação)</p>
-          </div>
-          <div>
-            <h4 className="font-medium text-gray-800 mb-2">Interesses</h4>
-            <ul className="list-disc pl-5 space-y-1 text-gray-600">
-              <li>Corrida e observação da natureza</li>
-              <li>Leitura de literatura medieval Russa e Britânica</li>
-              <li>Prática de Jiu Jitsu Brasileiro e MMA (título de terceiro lugar no campeonato nacional de BJJ)</li>
-              <li>Voluntariado na instituição Mizangalas de apoio a crianças de rua</li>
+          <ScrollArea className="h-60 rounded-md">
+            <ul className="list-disc pl-5 space-y-2 text-gray-600">
+              <li>MCSE - Damelin, África do Sul (1999-2000)</li>
+              <li>Formação em Sistemas e Redes (Windows 2000) - TOBE Angola (2001-2002)</li>
+              <li>Segurança da Informação - Synel Industries, Haia, Israel (2006)</li>
+              <li>Formação ICND (Interconnection Cisco Network Devices) - Multiredes, Luanda (2007)</li>
+              <li>Microsoft SQL Server 2005 - NSI Training Technology, Rio de Janeiro (2009)</li>
+              <li>Certified Ethical Hacker v12 - Koenig (2023)</li>
+              <li>AWS Cloud Technical Essentials (2023)</li>
+              <li>Architecting Solutions on AWS (2024)</li>
+              <li>Cybersecurity for Everyone - University of Maryland (2023)</li>
+              <li>IBM Cybersecurity Analyst Professional Certificate (2024)</li>
             </ul>
-          </div>
+          </ScrollArea>
         </div>
       </section>
     </div>
