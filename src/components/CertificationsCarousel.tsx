@@ -126,13 +126,13 @@ const CertificationsCarousel = () => {
   const getCategoryIcon = (category: string) => {
     switch(category) {
       case 'security':
-        return <Shield className="h-6 w-6" />;
+        return <Shield className="h-5 w-5 sm:h-6 sm:w-6" />;
       case 'cloud':
-        return <Award className="h-6 w-6" />;
+        return <Award className="h-5 w-5 sm:h-6 sm:w-6" />;
       case 'development':
-        return <Code className="h-6 w-6" />;
+        return <Code className="h-5 w-5 sm:h-6 sm:w-6" />;
       default:
-        return <GraduationCap className="h-6 w-6" />;
+        return <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6" />;
     }
   };
 
@@ -152,8 +152,8 @@ const CertificationsCarousel = () => {
   };
   
   return (
-    <div className="space-y-6 animate-fade-in px-2 sm:px-0">
-      <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+    <div className="space-y-4 animate-fade-in px-0">
+      <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
         <GraduationCap className="w-5 h-5 text-portfolio-primary-accent" />
         Certificações e Treinamentos
       </h3>
@@ -184,10 +184,10 @@ const CertificationsCarousel = () => {
                   "h-full border-l-4 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300",
                   getCategoryColor(cert.category)
                 )}>
-                  <CardContent className="p-4 sm:p-6 bg-gradient-to-br h-full flex flex-col">
-                    <div className="flex items-start gap-2 sm:gap-3 mb-2">
+                  <CardContent className="p-3 sm:p-4 bg-gradient-to-br h-full flex flex-col">
+                    <div className="flex items-start gap-2 mb-2">
                       <div className={cn(
-                        "w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0",
+                        "w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0",
                         cert.category === 'security' ? 'bg-red-100 text-red-600' :
                         cert.category === 'infrastructure' ? 'bg-blue-100 text-blue-600' :
                         cert.category === 'cloud' ? 'bg-violet-100 text-violet-600' : 
@@ -196,12 +196,12 @@ const CertificationsCarousel = () => {
                         {getCategoryIcon(cert.category)}
                       </div>
                       <div>
-                        <h3 className="text-base sm:text-lg font-medium text-gray-800">{cert.title}</h3>
+                        <h3 className="text-sm sm:text-base font-medium text-gray-800">{cert.title}</h3>
                       </div>
                     </div>
                     
                     <div className="mt-auto">
-                      <p className="text-xs sm:text-sm text-gray-600">{cert.institution}</p>
+                      <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">{cert.institution}</p>
                       <p className="text-xs font-medium text-gray-500 mt-1">{cert.year}</p>
                     </div>
                   </CardContent>
@@ -211,25 +211,25 @@ const CertificationsCarousel = () => {
           ))}
         </CarouselContent>
         
-        <div className="flex items-center justify-center mt-4 gap-1">
-          {certifications.map((_, index) => (
+        <div className="flex items-center justify-center mt-3 gap-1">
+          {Array.from({ length: Math.ceil(certifications.length / getSlidesPerView()) }).map((_, index) => (
             <button
               key={index}
               className={cn(
                 "w-2 h-2 rounded-full transition-all duration-300",
-                current === index 
+                current === index * getSlidesPerView() 
                   ? "bg-portfolio-primary-accent w-4" 
                   : "bg-gray-300 hover:bg-gray-400"
               )}
-              onClick={() => api?.scrollTo(index)}
-              aria-label={`Go to slide ${index + 1}`}
+              onClick={() => api?.scrollTo(index * getSlidesPerView())}
+              aria-label={`Go to slide group ${index + 1}`}
             />
           ))}
         </div>
         
-        <div className="hidden md:flex">
-          <CarouselPrevious className="hidden md:flex -left-4" />
-          <CarouselNext className="hidden md:flex -right-4" />
+        <div className="hidden md:block">
+          <CarouselPrevious className="-left-3 sm:-left-4 h-7 w-7" />
+          <CarouselNext className="-right-3 sm:-right-4 h-7 w-7" />
         </div>
       </Carousel>
     </div>
