@@ -1,13 +1,6 @@
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Shield, Award, GraduationCap, Code } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { useBreakpoint } from '@/hooks/use-mobile';
@@ -83,46 +76,8 @@ const certifications: Certification[] = [
 ];
 
 const CertificationsCarousel = () => {
-  const [api, setApi] = useState<any>();
-  const [current, setCurrent] = useState(0);
   const breakpoint = useBreakpoint();
   
-  // Determine slides per view based on screen size
-  const getSlidesPerView = () => {
-    switch(breakpoint) {
-      case 'mobile':
-        return 1;
-      case 'tablet':
-        return 2;
-      case 'laptop':
-      case 'desktop':
-        return 3;
-      default:
-        return 1; // Fallback
-    }
-  };
-  
-  // Auto-advance the carousel every 2 seconds
-  useEffect(() => {
-    if (!api) return;
-
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 2000);
-
-    // Listen for carousel changes
-    const onSelect = () => {
-      setCurrent(api.selectedScrollSnap());
-    };
-    
-    api.on("select", onSelect);
-    
-    return () => {
-      clearInterval(interval);
-      api?.off("select", onSelect);
-    };
-  }, [api]);
-
   const getCategoryIcon = (category: string) => {
     switch(category) {
       case 'security':
@@ -152,86 +107,44 @@ const CertificationsCarousel = () => {
   };
   
   return (
-    <div className="space-y-4 animate-fade-in px-0">
+    <div className="space-y-4 animate-fade-in">
       <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
         <GraduationCap className="w-5 h-5 text-portfolio-primary-accent" />
         Certificações e Treinamentos
       </h3>
       
-      <Carousel
-        setApi={setApi}
-        className="w-full"
-        opts={{
-          align: "start",
-          loop: true,
-          skipSnaps: false,
-          slidesToScroll: 1,
-        }}
-      >
-        <CarouselContent className="-ml-2 md:-ml-4">
-          {certifications.map((cert, index) => (
-            <CarouselItem 
-              key={index} 
-              className={cn(
-                "pl-2 md:pl-4",
-                breakpoint === 'mobile' ? 'basis-full' : 
-                breakpoint === 'tablet' ? 'basis-1/2' : 
-                'basis-1/3'
-              )}
-            >
-              <div className="h-full">
-                <Card className={cn(
-                  "h-full border-l-4 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300",
-                  getCategoryColor(cert.category)
-                )}>
-                  <CardContent className="p-3 sm:p-4 bg-gradient-to-br h-full flex flex-col">
-                    <div className="flex items-start gap-2 mb-2">
-                      <div className={cn(
-                        "w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0",
-                        cert.category === 'security' ? 'bg-red-100 text-red-600' :
-                        cert.category === 'infrastructure' ? 'bg-blue-100 text-blue-600' :
-                        cert.category === 'cloud' ? 'bg-violet-100 text-violet-600' : 
-                        'bg-green-100 text-green-600'
-                      )}>
-                        {getCategoryIcon(cert.category)}
-                      </div>
-                      <div>
-                        <h3 className="text-sm sm:text-base font-medium text-gray-800">{cert.title}</h3>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-auto">
-                      <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">{cert.institution}</p>
-                      <p className="text-xs font-medium text-gray-500 mt-1">{cert.year}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        
-        <div className="flex items-center justify-center mt-3 gap-1">
-          {Array.from({ length: Math.ceil(certifications.length / getSlidesPerView()) }).map((_, index) => (
-            <button
-              key={index}
-              className={cn(
-                "w-2 h-2 rounded-full transition-all duration-300",
-                current === index * getSlidesPerView() 
-                  ? "bg-portfolio-primary-accent w-4" 
-                  : "bg-gray-300 hover:bg-gray-400"
-              )}
-              onClick={() => api?.scrollTo(index * getSlidesPerView())}
-              aria-label={`Go to slide group ${index + 1}`}
-            />
-          ))}
-        </div>
-        
-        <div className="hidden md:block">
-          <CarouselPrevious className="-left-3 sm:-left-4 h-7 w-7" />
-          <CarouselNext className="-right-3 sm:-right-4 h-7 w-7" />
-        </div>
-      </Carousel>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+        {certifications.map((cert, index) => (
+          <div key={index} className="h-full">
+            <Card className={cn(
+              "h-full border-l-4 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300",
+              getCategoryColor(cert.category)
+            )}>
+              <CardContent className="p-3 sm:p-4 bg-gradient-to-br h-full flex flex-col">
+                <div className="flex items-start gap-2 mb-2">
+                  <div className={cn(
+                    "w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0",
+                    cert.category === 'security' ? 'bg-red-100 text-red-600' :
+                    cert.category === 'infrastructure' ? 'bg-blue-100 text-blue-600' :
+                    cert.category === 'cloud' ? 'bg-violet-100 text-violet-600' : 
+                    'bg-green-100 text-green-600'
+                  )}>
+                    {getCategoryIcon(cert.category)}
+                  </div>
+                  <div>
+                    <h3 className="text-sm sm:text-base font-medium text-gray-800">{cert.title}</h3>
+                  </div>
+                </div>
+                
+                <div className="mt-auto">
+                  <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">{cert.institution}</p>
+                  <p className="text-xs font-medium text-gray-500 mt-1">{cert.year}</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
