@@ -3,53 +3,53 @@ import React from 'react';
 import ProjectCard from './ProjectCard';
 import { useProjectFilter } from '../hooks/useProjectFilter';
 
-const categories = ["All", "Web Design", "Applications", "Web Development"];
+const categories = ["All", "Development", "Management", "Infrastructure"];
 
 const projects = [
   {
     image: 'https://i.postimg.cc/qRHpHMyd/project-1.jpg',
-    title: 'Finance',
-    category: 'Web Development'
+    title: 'System Integration Project',
+    category: 'Development'
   },
   {
     image: 'https://i.postimg.cc/bNrcM2Wt/project-2.png',
-    title: 'Orizon',
-    category: 'Web Development'
+    title: 'Enterprise CRM Implementation',
+    category: 'Management'
   },
   {
     image: 'https://i.postimg.cc/jSJVqYsq/project-3.jpg',
-    title: 'Fundo',
-    category: 'Web Design'
+    title: 'Network Infrastructure Upgrade',
+    category: 'Infrastructure'
   },
   {
     image: 'https://i.postimg.cc/dtpXxNGb/project-4.png',
-    title: 'Brawlhalla',
-    category: 'Applications'
+    title: 'Custom ERP Solution',
+    category: 'Development'
   },
   {
     image: 'https://i.postimg.cc/43T0JKLw/project-5.png',
-    title: 'DSM.',
-    category: 'Web Design'
+    title: 'Database Migration & Optimization',
+    category: 'Infrastructure'
   },
   {
     image: 'https://i.postimg.cc/qR1DX1kZ/project-6.png',
-    title: 'Metaspark',
-    category: 'Web Design'
+    title: 'Project Management Office Setup',
+    category: 'Management'
   },
   {
     image: 'https://i.postimg.cc/Kj4q9tjc/project-7.png',
-    title: 'Summary',
-    category: 'Web Development'
+    title: 'API Development',
+    category: 'Development'
   },
   {
     image: 'https://i.postimg.cc/rw2j4B1w/project-8.jpg',
-    title: 'Task Manager',
-    category: 'Applications'
+    title: 'Cloud Migration Strategy',
+    category: 'Infrastructure'
   },
   {
     image: 'https://i.postimg.cc/7LxNsSQv/project-9.png',
-    title: 'Arrival',
-    category: 'Web Development'
+    title: 'Agile Transformation',
+    category: 'Management'
   }
 ];
 
