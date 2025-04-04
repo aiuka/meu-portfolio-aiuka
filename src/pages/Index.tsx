@@ -6,7 +6,6 @@ import Resume from '../components/Resume';
 import Portfolio from '../components/Portfolio';
 import Blog from '../components/Blog';
 import Contact from '../components/Contact';
-import CoursesSection from '../components/CoursesSection';
 import TestimonialSection from '../components/TestimonialSection';
 import { useTabNavigation, TabType } from '../hooks/useTabNavigation';
 
@@ -69,13 +68,7 @@ const Index = () => {
               </nav>
               
               <div className="p-6">
-                {activeTab === 'about' && (
-                  <>
-                    <About />
-                    <CoursesSection />
-                    <TestimonialSection />
-                  </>
-                )}
+                {activeTab === 'about' && <About />}
                 {activeTab === 'resume' && <Resume />}
                 {activeTab === 'portfolio' && <Portfolio />}
                 {activeTab === 'blog' && <Blog />}
