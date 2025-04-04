@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -83,6 +82,12 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
+  }
 }
 
 @layer base {
@@ -105,15 +110,15 @@
   }
   
   .service-item {
-    @apply flex gap-4 p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow;
+    @apply flex gap-4 p-4 sm:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow;
   }
   
   .service-icon {
-    @apply flex items-center justify-center w-14 h-14 rounded-full bg-indigo-100 text-portfolio-primary-accent;
+    @apply flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-indigo-100 text-portfolio-primary-accent;
   }
   
   .nav-item {
-    @apply relative cursor-pointer px-4 py-2 transition-colors;
+    @apply relative cursor-pointer px-2 sm:px-4 py-2 transition-colors text-sm sm:text-base whitespace-nowrap;
   }
   
   .nav-item.active {
@@ -143,7 +148,7 @@
   }
   
   .skill-bar {
-    @apply w-full h-3 bg-gray-200 rounded-full overflow-hidden;
+    @apply w-full h-2 sm:h-3 bg-gray-200 rounded-full overflow-hidden;
   }
   
   .skill-progress {
@@ -159,6 +164,24 @@
   }
   
   .social-link {
-    @apply flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-600 hover:bg-portfolio-primary-accent hover:text-white transition-colors;
+    @apply flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-200 text-gray-600 hover:bg-portfolio-primary-accent hover:text-white transition-colors;
+  }
+
+  /* Responsive utilities */
+  .responsive-padding {
+    @apply px-4 py-4 sm:px-6 sm:py-5 md:px-8 md:py-6;
+  }
+
+  .responsive-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
