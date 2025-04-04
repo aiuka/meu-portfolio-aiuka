@@ -7,7 +7,7 @@ import TestimonialModal from './TestimonialModal';
 const testimonials = [
   {
     avatar: 'https://i.postimg.cc/zGDHfn3G/avatar-1.png',
-    name: 'Daniel Lewis',
+    name: 'Arlindo Alves, former CTO of Movicel, Ltda',
     text: 'Richard was hired to create a corporate identity. It\'s modern, clean and with a beautiful design that got a lot of praises from colleagues and visitors. We were very pleased with the work done. He has a lot of experience and is very concerned about the needs of client.'
   },
   {
