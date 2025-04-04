@@ -1,7 +1,7 @@
-
 import React from 'react';
 import TimelineItem from './TimelineItem';
 import SkillBar from './SkillBar';
+import CertificationsCarousel from './CertificationsCarousel';
 import { Globe, Book, HeartPulse, Award } from 'lucide-react';
 import { 
   Card,
@@ -15,7 +15,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 const education = [
   {
@@ -241,25 +240,7 @@ const Resume = () => {
         </div>
       </section>
 
-      <section>
-        <h3 className="text-xl font-semibold text-gray-800 mb-6">Certificações e Treinamentos</h3>
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <ScrollArea className="h-60 rounded-md">
-            <ul className="list-disc pl-5 space-y-2 text-gray-600">
-              <li>MCSE - Damelin, África do Sul (1999-2000)</li>
-              <li>Formação em Sistemas e Redes (Windows 2000) - TOBE Angola (2001-2002)</li>
-              <li>Segurança da Informação - Synel Industries, Haia, Israel (2006)</li>
-              <li>Formação ICND (Interconnection Cisco Network Devices) - Multiredes, Luanda (2007)</li>
-              <li>Microsoft SQL Server 2005 - NSI Training Technology, Rio de Janeiro (2009)</li>
-              <li>Certified Ethical Hacker v12 - Koenig (2023)</li>
-              <li>AWS Cloud Technical Essentials (2023)</li>
-              <li>Architecting Solutions on AWS (2024)</li>
-              <li>Cybersecurity for Everyone - University of Maryland (2023)</li>
-              <li>IBM Cybersecurity Analyst Professional Certificate (2024)</li>
-            </ul>
-          </ScrollArea>
-        </div>
-      </section>
+      <CertificationsCarousel />
     </div>
   );
 };
