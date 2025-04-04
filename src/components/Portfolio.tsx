@@ -17,7 +17,7 @@ const projects = [
     category: 'Management'
   },
   {
-    image: 'https://i.postimg.cc/jSJVqYsq/project-3.jpg',
+    image: 'https://i.postimg.cc/L8PK7nV7/network-infrastructure.jpg',
     title: 'Network Infrastructure Upgrade',
     category: 'Infrastructure'
   },
@@ -27,7 +27,7 @@ const projects = [
     category: 'Development'
   },
   {
-    image: 'https://i.postimg.cc/43T0JKLw/project-5.png',
+    image: 'https://i.postimg.cc/d1JW0mh4/database-migration.jpg',
     title: 'Database Migration & Optimization',
     category: 'Infrastructure'
   },
@@ -42,7 +42,7 @@ const projects = [
     category: 'Development'
   },
   {
-    image: 'https://i.postimg.cc/rw2j4B1w/project-8.jpg',
+    image: 'https://i.postimg.cc/cC17Vd0V/cloud-migration.jpg',
     title: 'Cloud Migration Strategy',
     category: 'Infrastructure'
   },
