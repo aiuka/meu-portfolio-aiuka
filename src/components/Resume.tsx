@@ -66,6 +66,7 @@ const languages = [
   { 
     name: 'Português',
     type: 'Nativo',
+    color: 'bg-emerald-500',
     proficiencies: { 
       listening: 100, 
       reading: 100, 
@@ -77,6 +78,7 @@ const languages = [
   { 
     name: 'Inglês',
     type: 'Fluente',
+    color: 'bg-portfolio-primary-accent',
     proficiencies: { 
       listening: 90, 
       reading: 90, 
@@ -178,10 +180,10 @@ const Resume = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {languages.map((language, index) => (
             <Card key={index} className="overflow-hidden hover:shadow-md transition-shadow duration-300">
-              <CardHeader className="bg-gradient-to-r from-indigo-50 to-blue-50 pb-3">
+              <CardHeader className={`bg-gradient-to-r ${language.name === 'Português' ? 'from-emerald-50 to-teal-50' : 'from-indigo-50 to-blue-50'} pb-3`}>
                 <div className="flex justify-between items-center">
                   <CardTitle className="text-lg font-medium">{language.name}</CardTitle>
-                  <CardDescription className="text-portfolio-primary-accent font-medium">
+                  <CardDescription className={`${language.name === 'Português' ? 'text-emerald-600' : 'text-portfolio-primary-accent'} font-medium`}>
                     {language.type}
                   </CardDescription>
                 </div>
@@ -193,7 +195,7 @@ const Resume = () => {
                       <div key={idx} className="flex flex-col items-center">
                         <div className="w-full h-24 bg-gray-100 rounded-md relative mb-1">
                           <div 
-                            className="absolute bottom-0 w-full bg-portfolio-primary-accent rounded-md transition-all duration-500"
+                            className={`absolute bottom-0 w-full ${language.color} rounded-md transition-all duration-500`}
                             style={{ height: `${level}%`, opacity: 0.7 + (level / 300) }}
                           ></div>
                         </div>
