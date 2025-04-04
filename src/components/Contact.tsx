@@ -1,12 +1,14 @@
 
 import React from 'react';
 import { useFormValidation } from '../hooks/useFormValidation';
-import { Send } from 'lucide-react';
+import { Send, Loader2 } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Contact = () => {
   const {
     formData,
     isValid,
+    isSubmitting,
     handleInputChange,
     handleSubmit
   } = useFormValidation({
@@ -78,20 +80,36 @@ const Contact = () => {
           </div>
           
           <div className="flex justify-end">
-            <button
+            <Button
               type="submit"
-              disabled={!isValid}
+              disabled={!isValid || isSubmitting}
               className={`flex items-center gap-2 px-6 py-3 rounded-md text-white ${
-                isValid 
+                isValid && !isSubmitting
                   ? 'bg-portfolio-primary-accent hover:bg-indigo-600' 
                   : 'bg-gray-400 cursor-not-allowed'
               } transition-colors`}
             >
-              <Send size={18} />
-              <span>Send Message</span>
-            </button>
+              {isSubmitting ? (
+                <Loader2 size={18} className="animate-spin" />
+              ) : (
+                <Send size={18} />
+              )}
+              <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+            </Button>
           </div>
         </form>
+      </section>
+      
+      <section className="mt-10 text-center">
+        <p className="text-gray-700">
+          For direct inquiries, email us at: {' '}
+          <a 
+            href="mailto:aiuka.machado@gmail.com"
+            className="text-portfolio-primary-accent hover:underline font-medium"
+          >
+            aiuka.machado@gmail.com
+          </a>
+        </p>
       </section>
     </div>
   );

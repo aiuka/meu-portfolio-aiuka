@@ -9,6 +9,7 @@ interface FormData {
 export const useFormValidation = (initialState: FormData) => {
   const [formData, setFormData] = useState<FormData>(initialState);
   const [isValid, setIsValid] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -26,9 +27,20 @@ export const useFormValidation = (initialState: FormData) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
     if (isValid) {
-      // Handle the form submission here
+      setIsSubmitting(true);
+      
+      // Create mailto URL with form data
+      const subject = `Contact from ${formData.fullname}`;
+      const body = `Name: ${formData.fullname}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+      
+      // Log form submission for debugging
       console.log('Form submitted:', formData);
+      
+      // Open default email client with pre-filled form data
+      const mailtoLink = `mailto:aiuka.machado@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(mailtoLink, '_blank');
       
       // Show success notification
       toast.success('Message sent successfully! We will get back to you soon.');
@@ -36,12 +48,14 @@ export const useFormValidation = (initialState: FormData) => {
       // Reset form after submission
       setFormData(initialState);
       setIsValid(false);
+      setIsSubmitting(false);
     }
   };
 
   return {
     formData,
     isValid,
+    isSubmitting,
     handleInputChange,
     handleSubmit
   };
