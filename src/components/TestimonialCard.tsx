@@ -19,9 +19,12 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, onClick 
         </div>
       </div>
       
-      <h4 className="text-lg font-medium text-gray-800 mb-3">{testimonial.name}</h4>
+      <h4 className="text-lg font-medium text-gray-800 mb-1">{testimonial.name}</h4>
+      {testimonial.title && (
+        <p className="text-sm text-gray-600 mb-3">{testimonial.title}</p>
+      )}
       
-      <p className="text-gray-600 line-clamp-4">{testimonial.text}</p>
+      <p className="text-gray-600 line-clamp-4 mt-3">{testimonial.text}</p>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { useState } from 'react';
 export interface Testimonial {
   avatar: string;
   name: string;
+  title?: string;
   text: string;
 }
 

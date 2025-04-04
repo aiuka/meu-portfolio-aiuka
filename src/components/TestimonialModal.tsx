@@ -30,7 +30,10 @@ const TestimonialModal: React.FC<TestimonialModalProps> = ({ isOpen, testimonial
           </div>
           
           <div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{testimonial.name}</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-1">{testimonial.name}</h3>
+            {testimonial.title && (
+              <p className="text-sm text-gray-600 mb-2">{testimonial.title}</p>
+            )}
             <p className="text-gray-600 text-sm mb-4">{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
             <div className="text-gray-700">
               <p>{testimonial.text}</p>
