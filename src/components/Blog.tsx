@@ -4,11 +4,11 @@ import BlogCard from './BlogCard';
 
 const blogPosts = [
   {
-    image: 'https://i.postimg.cc/DysCZrWs/blog-1.jpg',
-    category: 'Design',
-    date: 'Feb 23, 2024',
-    title: 'Design conferences in 2024',
-    excerpt: 'In 2024, several exciting design conferences are set to take place, offering opportunities for professionals and enthusiasts to connect, learn, and share innovative ideas.'
+    image: '/lovable-uploads/27ce0b8e-6158-49d9-b2d5-3a50673457fe.png',
+    category: 'Security',
+    date: 'Apr 4, 2025',
+    title: 'How to Secure a Huawei Router in 5 Practical Steps',
+    excerpt: 'Your Huawei router ships vulnerable. I\'ve secured dozens with HCNA and HCNP know-how. First, ditch the default admin password—mix letters, numbers, and symbols. Second, turn off remote management to stop external hacks. Third, grab the latest firmware from Huawei\'s site to fix weak spots. Fourth, create VLANs to split traffic—I did this for Angola Telecom\'s northern rollout. Last, switch on basic firewall rules to block inbound junk. Ping it from outside to test. Locked down yet?'
   },
   {
     image: 'https://i.postimg.cc/QC7qFDMs/blog-2.jpg',
