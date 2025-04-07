@@ -1,7 +1,6 @@
 
 import React from 'react';
 import BlogCard from './BlogCard';
-import { motion } from 'framer-motion';
 
 const blogPosts = [
   {
@@ -48,62 +47,28 @@ const blogPosts = [
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5
-    }
-  }
-};
-
 const Blog = () => {
   return (
-    <motion.div 
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="space-y-12"
-    >
-      <motion.header variants={itemVariants}>
+    <div className="space-y-12">
+      <header>
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Blog</h2>
-      </motion.header>
+      </header>
 
-      <motion.section variants={itemVariants}>
+      <section>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.map((post, index) => (
-            <motion.div 
+            <BlogCard 
               key={index}
-              variants={itemVariants}
-              whileHover={{ 
-                scale: 1.02, 
-                transition: { duration: 0.2 } 
-              }}
-            >
-              <BlogCard 
-                image={post.image}
-                category={post.category}
-                date={post.date}
-                title={post.title}
-                excerpt={post.excerpt}
-              />
-            </motion.div>
+              image={post.image}
+              category={post.category}
+              date={post.date}
+              title={post.title}
+              excerpt={post.excerpt}
+            />
           ))}
         </div>
-      </motion.section>
-    </motion.div>
+      </section>
+    </div>
   );
 };
 
