@@ -6,73 +6,67 @@ import Resume from '../components/Resume';
 import Portfolio from '../components/Portfolio';
 import Blog from '../components/Blog';
 import Contact from '../components/Contact';
-import TestimonialSection from '../components/TestimonialSection';
 import { useTabNavigation, TabType } from '../hooks/useTabNavigation';
 
 const Index = () => {
   const { activeTab, handleTabChange } = useTabNavigation('about');
 
+  const renderTabContent = () => {
+    switch(activeTab) {
+      case 'about':
+        return <About />;
+      case 'resume':
+        return <Resume />;
+      case 'portfolio':
+        return <Portfolio />;
+      case 'blog':
+        return <Blog />;
+      case 'contact':
+        return <Contact />;
+      default:
+        return <About />;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-[300px_1fr] lg:grid-cols-[350px_1fr] gap-6">
-          <div>
+          <div className="animate-fade-in">
             <Sidebar />
           </div>
           
-          <div>
+          <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
             <div className="bg-white shadow-md rounded-xl overflow-hidden">
-              <nav className="bg-white border-b">
+              <nav className="bg-white border-b sticky top-0 z-10">
                 <ul className="flex overflow-x-auto scrollbar-hide">
-                  <li>
-                    <button 
-                      className={`nav-item ${activeTab === 'about' ? 'active' : ''}`}
-                      onClick={() => handleTabChange('about')}
-                    >
-                      About
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      className={`nav-item ${activeTab === 'resume' ? 'active' : ''}`}
-                      onClick={() => handleTabChange('resume')}
-                    >
-                      Resume
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      className={`nav-item ${activeTab === 'portfolio' ? 'active' : ''}`}
-                      onClick={() => handleTabChange('portfolio')}
-                    >
-                      Portfolio
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      className={`nav-item ${activeTab === 'blog' ? 'active' : ''}`}
-                      onClick={() => handleTabChange('blog')}
-                    >
-                      Blog
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      className={`nav-item ${activeTab === 'contact' ? 'active' : ''}`}
-                      onClick={() => handleTabChange('contact')}
-                    >
-                      Contact
-                    </button>
-                  </li>
+                  {[
+                    { id: 'about', label: 'About' },
+                    { id: 'resume', label: 'Resume' },
+                    { id: 'portfolio', label: 'Portfolio' },
+                    { id: 'blog', label: 'Blog' },
+                    { id: 'contact', label: 'Contact' }
+                  ].map((tab, index) => (
+                    <li key={tab.id}>
+                      <button 
+                        className={`nav-item relative px-4 py-3 text-sm md:text-base font-medium transition-colors duration-300 ${activeTab === tab.id ? 'text-portfolio-primary-accent' : 'text-gray-700 hover:text-portfolio-primary-accent'}`}
+                        onClick={() => handleTabChange(tab.id as TabType)}
+                        style={{ animationDelay: `${index * 100}ms` }}
+                      >
+                        {tab.label}
+                        {activeTab === tab.id && (
+                          <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portfolio-primary-accent animate-slide-in-right" />
+                        )}
+                      </button>
+                    </li>
+                  ))}
                 </ul>
               </nav>
               
               <div className="p-6">
-                {activeTab === 'about' && <About />}
-                {activeTab === 'resume' && <Resume />}
-                {activeTab === 'portfolio' && <Portfolio />}
-                {activeTab === 'blog' && <Blog />}
-                {activeTab === 'contact' && <Contact />}
+                <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
+                  {renderTabContent()}
+                </div>
               </div>
             </div>
           </div>
