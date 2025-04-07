@@ -25,8 +25,12 @@ const Sidebar = () => {
             src="https://i.postimg.cc/JzBWVhW4/my-avatar.png" 
             alt="Aiuka Machado"
             size="lg"
-            className="mb-4"
+            className="mb-2"
           />
+          
+          <p className="text-sm font-medium text-portfolio-primary-accent mb-3 animate-fade-in">
+            Técnico de Redes de Pacotes/Seg Infor
+          </p>
           
           <button 
             onClick={toggleSidebar}
