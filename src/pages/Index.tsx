@@ -18,7 +18,7 @@ const Index = () => {
     // Simulate loading to ensure all animations start properly
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 300);
+    }, 800);
     
     return () => clearTimeout(timer);
   }, []);
@@ -33,7 +33,7 @@ const Index = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -41,7 +41,7 @@ const Index = () => {
           className="text-indigo-600"
         >
           <svg 
-            className="animate-spin h-10 w-10" 
+            className="animate-spin h-12 w-12" 
             xmlns="http://www.w3.org/2000/svg" 
             fill="none" 
             viewBox="0 0 24 24"
@@ -66,7 +66,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-8">
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -92,9 +92,13 @@ const Index = () => {
                   transition={{ duration: 0.4, delay: 0.3 }}
                 >
                   {tabs.map(tab => (
-                    <motion.li key={tab.id}>
+                    <motion.li key={tab.id} className="relative">
                       <button 
-                        className={`nav-item ${activeTab === tab.id ? 'active' : ''} relative px-5 py-4`}
+                        className={`px-6 py-4 text-base ${
+                          activeTab === tab.id 
+                            ? 'font-medium text-indigo-600' 
+                            : 'text-gray-600 hover:text-indigo-500'
+                        } transition-colors duration-200`}
                         onClick={() => handleTabChange(tab.id as TabType)}
                       >
                         <span className="relative z-10">{tab.label}</span>

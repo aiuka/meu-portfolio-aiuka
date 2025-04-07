@@ -39,23 +39,61 @@ const Sidebar = () => {
     >
       <div className="p-7">
         <div className="flex flex-col items-center text-center">
+          {/* Enhanced profile image with circle animation */}
           <div 
-            className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-indigo-100 mb-6 shadow-md"
+            className="relative w-36 h-36 rounded-full overflow-hidden mb-6 group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            {showAnimation ? (
+            {showAnimation && (
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-b from-indigo-50 to-transparent z-0"
-                animate={{ 
-                  opacity: isHovered ? 0.7 : 0,
-                  scale: isHovered ? 1.05 : 1,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-            ) : null}
+                className="absolute inset-0 z-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                  <motion.circle
+                    cx="50"
+                    cy="50"
+                    r="48"
+                    fill="none"
+                    stroke="url(#gradient)"
+                    strokeWidth="1"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ 
+                      pathLength: 1, 
+                      opacity: [0, 0.2, 0.4, 0.6, 0.8, 1],
+                      rotate: 360
+                    }}
+                    transition={{ 
+                      duration: 2.5,
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatType: "loop"
+                    }}
+                  />
+                  <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#a78bfa" />
+                      <stop offset="50%" stopColor="#818cf8" />
+                      <stop offset="100%" stopColor="#60a5fa" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </motion.div>
+            )}
+            
+            <motion.div 
+              className="absolute inset-0 bg-indigo-100 z-0 rounded-full"
+              animate={{ 
+                scale: isHovered ? 1.1 : 1
+              }}
+              transition={{ duration: 0.5 }}
+            />
             
             <motion.div
+              className="relative z-0 w-full h-full p-1.5"
               animate={isHovered ? { 
                 scale: 1.05, 
                 y: -3
@@ -65,7 +103,7 @@ const Sidebar = () => {
               }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <Avatar className="w-full h-full">
+              <Avatar className="w-full h-full border-4 border-white shadow-md">
                 <AvatarImage 
                   src="/lovable-uploads/d35aee27-2030-428b-a64f-03703a6c90a6.png" 
                   alt="Aiuka Machado"
@@ -76,27 +114,37 @@ const Sidebar = () => {
             </motion.div>
           </div>
           
+          {/* Improved name display with animation */}
           <motion.h1 
-            className="text-2xl font-semibold text-gray-800 mb-1"
-            animate={{ scale: isHovered ? 1.03 : 1 }}
-            transition={{ duration: 0.2 }}
+            className="text-2xl font-bold text-gray-800 mb-1"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
           >
             Aiuka Machado
           </motion.h1>
           
-          <motion.p 
-            className="text-indigo-600 mb-5 font-medium"
-            animate={{ y: isHovered ? -2 : 0 }}
-            transition={{ duration: 0.2 }}
+          {/* Improved role display with gradient and animation */}
+          <motion.div
+            className="relative mb-5"
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
           >
-            IT Tech + Network Admin
-          </motion.p>
+            <span className="bg-gradient-to-r from-indigo-600 to-blue-500 text-transparent bg-clip-text font-medium text-lg">
+              IT Tech + Network Admin
+            </span>
+          </motion.div>
           
+          {/* Enhanced button with better animation */}
           <motion.button 
             onClick={toggleSidebar}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-md hover:shadow-lg hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300"
             whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-all duration-300"
+            whileTap={{ scale: 0.97 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
           >
             <span>{isOpen ? 'Hide Contacts' : 'Show Contacts'}</span>
             {isOpen ? (
@@ -105,7 +153,7 @@ const Sidebar = () => {
                 animate={{ rotate: 180 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronUp size={16} />
+                <ChevronUp size={18} />
               </motion.div>
             ) : (
               <motion.div
@@ -113,7 +161,7 @@ const Sidebar = () => {
                 animate={{ rotate: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronDown size={16} />
+                <ChevronDown size={18} />
               </motion.div>
             )}
           </motion.button>
