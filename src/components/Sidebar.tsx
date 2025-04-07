@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   Mail, 
@@ -41,7 +40,7 @@ const Sidebar = () => {
         <div className="flex flex-col items-center text-center">
           {/* Enhanced profile image with circle animation */}
           <div 
-            className="relative w-36 h-36 rounded-full overflow-hidden mb-6 group"
+            className="relative w-36 h-36 rounded-full overflow-hidden mb-4 group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -106,35 +105,13 @@ const Sidebar = () => {
               <Avatar className="w-full h-full border-4 border-white shadow-md">
                 <AvatarImage 
                   src="/lovable-uploads/d35aee27-2030-428b-a64f-03703a6c90a6.png" 
-                  alt="Aiuka Machado"
+                  alt="Profile"
                   className="w-full h-full object-cover"
                 />
                 <AvatarFallback>AM</AvatarFallback>
               </Avatar>
             </motion.div>
           </div>
-          
-          {/* Improved name display with animation */}
-          <motion.h1 
-            className="text-2xl font-bold text-gray-800 mb-1"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-          >
-            Aiuka Machado
-          </motion.h1>
-          
-          {/* Improved role display with gradient and animation */}
-          <motion.div
-            className="relative mb-5"
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-          >
-            <span className="bg-gradient-to-r from-indigo-600 to-blue-500 text-transparent bg-clip-text font-medium text-lg">
-              IT Tech + Network Admin
-            </span>
-          </motion.div>
           
           {/* Enhanced button with better animation */}
           <motion.button 
