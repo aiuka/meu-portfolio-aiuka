@@ -14,17 +14,17 @@ const Index = () => {
   const renderTabContent = () => {
     switch(activeTab) {
       case 'about':
-        return <About />;
+        return <sobre />;
       case 'resume':
-        return <Resume />;
+        return <Resumo />;
       case 'portfolio':
         return <Portfolio />;
       case 'blog':
         return <Blog />;
       case 'contact':
-        return <Contact />;
+        return <Contacto />;
       default:
-        return <About />;
+        return <Sobre />;
     }
   };
 
