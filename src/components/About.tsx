@@ -1,9 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import TestimonialSection from './TestimonialSection';
 import { Network, Radio, ShieldCheck, Users } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const About = () => {
+  const [showTestimonials, setShowTestimonials] = useState(false);
+  
   return (
     <div className="space-y-12">
       <header>
@@ -64,7 +67,17 @@ const About = () => {
         </div>
       </section>
 
-      <TestimonialSection />
+      <div className="flex justify-center">
+        <Button 
+          variant="outline" 
+          className="border-portfolio-primary-accent text-portfolio-primary-accent hover:bg-portfolio-primary-accent hover:text-white"
+          onClick={() => setShowTestimonials(!showTestimonials)}
+        >
+          {showTestimonials ? 'Hide Testimonials' : 'View Testimonials'}
+        </Button>
+      </div>
+
+      {showTestimonials && <TestimonialSection />}
 
       <section>
         <h3 className="text-xl font-semibold text-gray-800 mb-6">Clients</h3>
