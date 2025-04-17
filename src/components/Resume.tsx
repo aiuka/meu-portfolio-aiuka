@@ -1,3 +1,4 @@
+
 import React from 'react';
 import TimelineItem from './TimelineItem';
 import SkillBar from './SkillBar';
@@ -55,7 +56,7 @@ const experience = [
 const skills = [
   { name: 'Administração de Sistemas Windows', percentage: 90 },
   { name: 'Segurança da Informação', percentage: 85 },
-  { name: 'Redes IPMPLS', percentage: 80 },
+  { name: 'Redes IPMPLS', percentage: 90 }, // Changed from 80% to 90%
   { name: 'Ferramentas de Monitoramento (Zabbix, Grafana)', percentage: 75 },
   { name: 'Implementação de Firewalls', percentage: 85 },
   { name: 'Virtualização (VMware)', percentage: 70 }
