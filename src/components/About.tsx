@@ -62,33 +62,9 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      <section>
-        <h3 className="text-xl font-semibold text-gray-800 mb-6">Clients</h3>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-          <div className="grayscale hover:grayscale-0 transition-all">
-            <img src="https://i.postimg.cc/YqfKyG66/logo-1-color.png" alt="Client logo" className="h-12 object-contain mx-auto" />
-          </div>
-          <div className="grayscale hover:grayscale-0 transition-all">
-            <img src="https://i.postimg.cc/fWm6JtgG/logo-2-color.png" alt="Client logo" className="h-12 object-contain mx-auto" />
-          </div>
-          <div className="grayscale hover:grayscale-0 transition-all">
-            <img src="https://i.postimg.cc/Bb07xpwd/logo-3-color.png" alt="Client logo" className="h-12 object-contain mx-auto" />
-          </div>
-          <div className="grayscale hover:grayscale-0 transition-all">
-            <img src="https://i.postimg.cc/hv1yMmkh/logo-4-color.png" alt="Client logo" className="h-12 object-contain mx-auto" />
-          </div>
-          <div className="grayscale hover:grayscale-0 transition-all">
-            <img src="https://i.postimg.cc/ry1P86Dc/logo-5-color.png" alt="Client logo" className="h-12 object-contain mx-auto" />
-          </div>
-          <div className="grayscale hover:grayscale-0 transition-all">
-            <img src="https://i.postimg.cc/SsWDN8NV/logo-6-color.png" alt="Client logo" className="h-12 object-contain mx-auto" />
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
 
 export default About;
+
