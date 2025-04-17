@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Shield, Award, GraduationCap, Code } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -42,12 +41,6 @@ const certifications: Certification[] = [
     institution: 'NSI Training Technology, Rio de Janeiro',
     year: '2009',
     category: 'development'
-  },
-  {
-    title: 'Certified Ethical Hacker v12',
-    institution: 'Koenig',
-    year: '2023',
-    category: 'security'
   },
   {
     title: 'AWS Cloud Technical Essentials',
