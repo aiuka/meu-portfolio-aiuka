@@ -29,7 +29,7 @@ const Sidebar = () => {
           />
           
           <p className="text-sm font-medium text-portfolio-primary-accent mb-3 animate-fade-in">
-            Técnico de Redes de Pacotes/Seg Infor
+            Information Technology Specialist
           </p>
           
           <button 
