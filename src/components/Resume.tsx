@@ -3,7 +3,7 @@ import React from 'react';
 import TimelineItem from './TimelineItem';
 import SkillBar from './SkillBar';
 import CertificationsCarousel from './CertificationsCarousel';
-import { Globe, Book, HeartPulse, Award } from 'lucide-react';
+import { Globe, Book, HeartPulse, Award, Briefcase } from 'lucide-react';
 import { 
   Card,
   CardContent,
@@ -19,9 +19,9 @@ import {
 
 const education = [
   {
-    title: 'Universidade Jean Piaget de Angola',
-    period: '2001 - 2007',
-    description: 'Estudos na área de Tecnologia de Informação, adquirindo conhecimentos teóricos e práticos essenciais em computação, incluindo fundamentos de programação, arquitetura de computadores, sistemas operacionais, bancos de dados, engenharia de software e habilidades de comunicação.'
+    title: 'Bacharelado em Informática de Gestão',
+    period: '2001 - Atual',
+    description: 'UniPiaget de Angola - Formação completa em gestão de sistemas de informação, incluindo desenvolvimento de software, administração de bancos de dados, gestão de projetos de TI e arquitetura de sistemas empresariais.'
   },
   {
     title: 'Forest High School (Johannesburg, África do Sul)',
@@ -32,34 +32,64 @@ const education = [
 
 const experience = [
   {
-    title: 'Técnico de Planeamento de Pacotes de Redes',
+    title: 'Especialista em Tecnologia da Informação / Técnico de IP/MPLS',
     period: '2017 - Presente',
-    description: 'Angola Telecom: Implementação de rede IPMPLS em toda a região norte de Angola. Desenvolvimento de estratégias de interligação e criação de redundância nas redes. Planejamento e dimensionamento dos pacotes de rede para garantir escalabilidade. Configuração e gerenciamento de tecnologias como BGP, FreeRADIUS, VMware ESXi, Zabbix, Grafana e Cacti.'
+    description: 'Angola Telecom E.P.: Configuração e manutenção de redes MPLS para garantir alta disponibilidade e desempenho. Implementação e monitoramento de protocolos de roteamento dinâmico BGP e OSPF. Gerenciamento de redes LAN e WAN, incluindo segmentação de VLANs e suporte a IPv6. Administração de equipamentos Huawei para otimização da infraestrutura de rede. Desenvolvimento e implementação de políticas de segurança da informação para ambientes IP/MPLS.'
   },
   {
-    title: 'Administrador de Redes Windows / Segurança de Informação',
-    period: '2010 - 2014',
-    description: 'SOF (Serviços e consultoria de TI): Gerenciamento do parque informático da empresa, assegurando disponibilidade e segurança dos sistemas. Prestação de consultoria em segurança da informação. Administração de servidores Windows. Implementação e gestão do firewall Blue Coat e antivírus McAfee.'
+    title: 'Consultor Técnico de Redes e Segurança',
+    period: '2013 - 2017',
+    description: 'SOF: Administração de servidores e redes, com foco em infraestrutura e segurança. Implementação de redes LAN, VLANs, firewalls e controle de acesso. Configuração e manutenção de dispositivos de segurança, como firewalls, sistemas IDS/IPS. Desenvolvimento e implementação de políticas de segurança da informação. Elaboração de relatórios técnicos detalhados para documentação de processos.'
   },
   {
-    title: 'Técnico de segurança informática / Chefe adjunto do Dept de Gestão de Risco',
+    title: 'Técnico de Suporte de Informática / Segurança da Informação',
     period: '2005 - 2009',
-    description: 'Movicel: Implementação de políticas de segurança corporativas. Administração de sistemas de informação. Identificação de vulnerabilidades em servidores, sistemas e redes. Monitoramento contínuo da segurança. Implementação e gestão de firewalls Checkpoint. Monitoramento físico e gestão de sistemas de CCTV.'
+    description: 'Movicel Telecommunications: Responsável adjunto da área de Segurança de Informação. Gestão e controlo das aplicações de monitoramento da rede e segurança da empresa. Administração de Firewall, Antivírus, Controle de acesso à internet, Prevenção de intrusões de rede, Balanceamento de links, VPN, Filtro de conteúdo e Controle de acesso wireless.'
   },
   {
-    title: 'Técnico de TIC',
-    period: '2001 - 2007',
-    description: 'Universidade Piaget de Angola: Suporte técnico aos usuários por meio do helpdesk. Treinamento de colaboradores e técnicos. Manutenção de impressoras. Apoio na estruturação da rede da universidade. Colaboração com a equipe de TI na resolução de problemas.'
+    title: 'Técnico de Manutenção',
+    period: '1994 - 1996',
+    description: 'Fina Petróleos de Angola (Refinaria de Luanda): Manutenção preventiva e corretiva em equipamentos industriais da refinaria. Monitoramento e diagnóstico de falhas nos sistemas de automação e controle. Colaboração com equipe de engenharia para otimização dos processos de manutenção.'
+  }
+];
+
+const projects = [
+  {
+    title: 'Conectividade por Satélite para Comunidades Remotas (Conecta Angola)',
+    period: '2025 - Atual',
+    description: 'Implementação de conectividade via satélite para inclusão digital em áreas remotas das províncias do Bié e Moxico. O projeto permitiu o funcionamento de serviços de tele-medicina e educação remota em áreas sem cobertura tradicional, contribuindo para o desenvolvimento regional.'
+  },
+  {
+    title: 'Migração e Otimização de Rede IP/MPLS',
+    period: '2025 - Atual',
+    description: 'Migração da rede nacional para uma arquitetura IP/MPLS e DWDM, aumentando a confiabilidade dos serviços e reduzindo os custos operacionais em 25%.'
+  },
+  {
+    title: 'Iniciativa de Roaming Nacional (Projeto Iluminar Angola)',
+    period: '2024 - Atual',
+    description: 'Integração inédita entre redes terrestres e satelitais, utilizando o ANGOSAT-2, para garantir roaming nacional contínuo. O projeto impactou diretamente mais de 7 milhões de utilizadores, promovendo acessibilidade e conectividade nas zonas mais remotas do país.'
+  },
+  {
+    title: 'Expansão Nacional da Banda Larga (Projeto NBN)',
+    period: '2024 - Atual',
+    description: 'Modernização da infraestrutura de banda larga de Angola em parceria com a Huawei, estendendo a conectividade estável para 60% do país. Configuração dos routers Huawei NE40E/NE5000E, reduzindo os custos de trânsito IP em 25% através da otimização de rotas BGP. Mitigação de mais de 1500 ataques DDoS em larga escala.'
+  },
+  {
+    title: 'Otimização da Rede IP/MPLS',
+    period: '2017',
+    description: 'Otimização da rede com objetivos relacionados a menor atraso, alta taxa de transmissão, diminuição da perda de pacotes e expansão Nacional. Gerenciamento de QoS (Quality of Service) em redes IP.'
   }
 ];
 
 const skills = [
-  { name: 'Administração de Sistemas Windows', percentage: 90 },
-  { name: 'Segurança da Informação', percentage: 85 },
-  { name: 'Redes IPMPLS', percentage: 90 }, // Changed from 80% to 90%
-  { name: 'Ferramentas de Monitoramento (Zabbix, Grafana)', percentage: 75 },
-  { name: 'Implementação de Firewalls', percentage: 85 },
-  { name: 'Virtualização (VMware)', percentage: 70 }
+  { name: 'Redes IP/MPLS', percentage: 95 },
+  { name: 'Segurança da Informação', percentage: 90 },
+  { name: 'Administração de Sistemas', percentage: 88 },
+  { name: 'Protocolos BGP/OSPF', percentage: 92 },
+  { name: 'Equipamentos Huawei', percentage: 90 },
+  { name: 'Firewalls e IDS/IPS', percentage: 85 },
+  { name: 'VMware e Virtualização', percentage: 75 },
+  { name: 'Gestão de Projetos', percentage: 80 }
 ];
 
 const languages = [
@@ -85,6 +115,18 @@ const languages = [
       writing: 80, 
       speaking: 90,
       interaction: 90
+    }
+  },
+  { 
+    name: 'Espanhol',
+    type: 'Intermediário',
+    color: 'bg-orange-500',
+    proficiencies: { 
+      listening: 70, 
+      reading: 75, 
+      writing: 65, 
+      speaking: 70,
+      interaction: 70
     }
   }
 ];
@@ -121,14 +163,14 @@ const Resume = () => {
 
       <section>
         <div className="text-gray-600 space-y-4">
-          <p>Profissional com mais de duas décadas na área de Tecnologia de Informação, com habilidades valiosas em TI, segurança de sistemas e gestão de projetos. Possuo conhecimento aprofundado em redes de computadores, configuração de roteadores e switches (Huawei), protocolos de rede e solução de problemas em ambientes de rede complexos.</p>
-          <p>Desempenhei papéis como Técnico de Informática, Administrador de Redes, e co-liderei um departamento de Gestão de Risco. Possuo treinamento em HCNA (Huawei Certified Network Associate) e HCNP (Huawei Certified Network Professional), além de diversos cursos em segurança da informação, sistemas Windows, AWS e cibersegurança.</p>
+          <p>Especialista em Tecnologia da Informação com mais de duas décadas de experiência, possuindo habilidades valiosas em TI, segurança de sistemas e gestão de projetos. Conhecimento aprofundado em redes IP/MPLS, configuração de equipamentos Huawei, protocolos de roteamento BGP/OSPF e solução de problemas em ambientes de rede complexos.</p>
+          <p>Liderou projetos de grande escala como a Expansão Nacional da Banda Larga e integração de redes terrestres e satelitais (ANGOSAT-2), impactando mais de 7 milhões de utilizadores. Possui certificações em cibersegurança, Big Data com Spark e Hadoop, e especialização em administração de sistemas Linux e Windows.</p>
         </div>
       </section>
 
       <section>
         <div className="flex items-center gap-3 mb-6">
-          <h3 className="text-xl font-semibold text-gray-800">Education</h3>
+          <h3 className="text-xl font-semibold text-gray-800">Educação</h3>
         </div>
         <div className="space-y-6">
           {education.map((item, index) => (
@@ -144,7 +186,7 @@ const Resume = () => {
 
       <section>
         <div className="flex items-center gap-3 mb-6">
-          <h3 className="text-xl font-semibold text-gray-800">Experience</h3>
+          <h3 className="text-xl font-semibold text-gray-800">Experiência Profissional</h3>
         </div>
         <div className="space-y-6">
           {experience.map((item, index) => (
@@ -159,7 +201,24 @@ const Resume = () => {
       </section>
 
       <section>
-        <h3 className="text-xl font-semibold text-gray-800 mb-6">My Skills</h3>
+        <div className="flex items-center gap-3 mb-6">
+          <Briefcase className="w-5 h-5 text-portfolio-primary-accent" />
+          <h3 className="text-xl font-semibold text-gray-800">Projetos Principais</h3>
+        </div>
+        <div className="space-y-6">
+          {projects.map((project, index) => (
+            <TimelineItem 
+              key={index}
+              title={project.title}
+              period={project.period}
+              description={project.description}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h3 className="text-xl font-semibold text-gray-800 mb-6">Competências Técnicas</h3>
         <div className="bg-white rounded-lg shadow-sm p-6 space-y-4">
           {skills.map((skill, index) => (
             <SkillBar 
@@ -177,13 +236,21 @@ const Resume = () => {
           <h3 className="text-xl font-semibold text-gray-800">Idiomas</h3>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {languages.map((language, index) => (
             <Card key={index} className="overflow-hidden hover:shadow-md transition-shadow duration-300">
-              <CardHeader className={`bg-gradient-to-r ${language.name === 'Português' ? 'from-emerald-50 to-teal-50' : 'from-indigo-50 to-blue-50'} pb-3`}>
+              <CardHeader className={`bg-gradient-to-r ${
+                language.name === 'Português' ? 'from-emerald-50 to-teal-50' : 
+                language.name === 'Inglês' ? 'from-indigo-50 to-blue-50' : 
+                'from-orange-50 to-red-50'
+              } pb-3`}>
                 <div className="flex justify-between items-center">
                   <CardTitle className="text-lg font-medium">{language.name}</CardTitle>
-                  <CardDescription className={`${language.name === 'Português' ? 'text-emerald-600' : 'text-portfolio-primary-accent'} font-medium`}>
+                  <CardDescription className={`${
+                    language.name === 'Português' ? 'text-emerald-600' : 
+                    language.name === 'Inglês' ? 'text-portfolio-primary-accent' : 
+                    'text-orange-600'
+                  } font-medium`}>
                     {language.type}
                   </CardDescription>
                 </div>
