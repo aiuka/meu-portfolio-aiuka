@@ -4,7 +4,6 @@ import Sidebar from '../components/Sidebar';
 import About from '../components/About';
 import Resume from '../components/Resume';
 import Portfolio from '../components/Portfolio';
-import Blog from '../components/Blog';
 import Contact from '../components/Contact';
 import { useTabNavigation, TabType } from '../hooks/useTabNavigation';
 
@@ -19,8 +18,6 @@ const Index = () => {
         return <Resume />;
       case 'portfolio':
         return <Portfolio />;
-      case 'blog':
-        return <Blog />;
       case 'contact':
         return <Contact />;
       default:
@@ -44,7 +41,6 @@ const Index = () => {
                     { id: 'about', label: 'About' },
                     { id: 'resume', label: 'Resume' },
                     { id: 'portfolio', label: 'Portfolio' },
-                    { id: 'blog', label: 'Blog' },
                     { id: 'contact', label: 'Contact' }
                   ].map((tab, index) => (
                     <li key={tab.id}>
