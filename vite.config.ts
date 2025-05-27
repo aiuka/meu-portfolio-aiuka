@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import componentTagger from 'vite-plugin-component-tagger'; // Adjust if this is a custom plugin or different package
 
 export default defineConfig(({ mode }) => ({
   base: '/meu-portfolio-aiuka/',
@@ -11,7 +10,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' && componentTagger(),
+    // Remove componentTagger for now, as it may not be installed or configured
   ].filter(Boolean),
   resolve: {
     alias: {
