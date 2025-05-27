@@ -2,19 +2,16 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   base: '/meu-portfolio-aiuka/',
   server: {
     host: '::',
     port: 8080,
   },
-  plugins: [
-    react(),
-    // Remove componentTagger for now, as it may not be installed or configured
-  ].filter(Boolean),
+  plugins: [react()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
-}));
+});
