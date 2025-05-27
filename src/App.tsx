@@ -7,15 +7,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ThemeToggle from "./components/ThemeToggle";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <div className="min-h-screen w-full bg-gray-100">
+      <div className="min-h-screen w-full bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
         <Toaster />
         <Sonner />
+        <ThemeToggle />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

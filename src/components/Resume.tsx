@@ -1,9 +1,10 @@
-
 import React from 'react';
 import TimelineItem from './TimelineItem';
 import SkillBar from './SkillBar';
+import Timeline from './Timeline';
+import CertificationCard from './CertificationCard';
 import CertificationsCarousel from './CertificationsCarousel';
-import { Globe, Book, HeartPulse, Award, Briefcase } from 'lucide-react';
+import { Globe, Book, HeartPulse, Award, Briefcase, Shield, Database, Network } from 'lucide-react';
 import { 
   Card,
   CardContent,
@@ -27,6 +28,79 @@ const education = [
     title: 'Forest High School (Johannesburg, África do Sul)',
     period: '1997 - 1999',
     description: 'Ensino Médio com foco em ciência da computação e tecnologia. Participou da equipe principal de rugby e basquete. Desenvolveu habilidades fundamentais em tecnologia da informação e sistemas computacionais.'
+  }
+];
+
+const timelineExperience = [
+  {
+    position: 'Especialista em Tecnologia da Informação / Técnico de IP/MPLS',
+    company: 'Angola Telecom E.P.',
+    period: '2017 - Presente',
+    location: 'Luanda, Angola',
+    skills: ['IP/MPLS', 'BGP', 'OSPF', 'Huawei NE40E', 'VLANs', 'IPv6', 'Segurança de Rede'],
+    achievements: [
+      'Implementação e migração da rede nacional para arquitetura IP/MPLS e DWDM',
+      'Redução de 25% nos custos operacionais através da otimização de rotas BGP',
+      'Mitigação de mais de 1500 ataques DDoS em larga escala',
+      'Gestão de conectividade para mais de 7 milhões de utilizadores'
+    ]
+  },
+  {
+    position: 'Consultor Técnico de Redes e Segurança',
+    company: 'SOF',
+    period: '2013 - 2017',
+    location: 'Luanda, Angola',
+    skills: ['Firewalls', 'IDS/IPS', 'VLANs', 'Segurança da Informação', 'Administração de Servidores'],
+    achievements: [
+      'Implementação de políticas de segurança da informação',
+      'Configuração e manutenção de dispositivos de segurança',
+      'Desenvolvimento de relatórios técnicos para documentação de processos',
+      'Redução de incidentes de segurança em 40%'
+    ]
+  },
+  {
+    position: 'Técnico de Suporte de Informática / Segurança da Informação',
+    company: 'Movicel Telecommunications',
+    period: '2005 - 2009',
+    location: 'Luanda, Angola',
+    skills: ['Firewall', 'Antivírus', 'VPN', 'Controle de Acesso', 'Monitoramento de Rede'],
+    achievements: [
+      'Responsável adjunto da área de Segurança de Informação',
+      'Gestão e controlo das aplicações de monitoramento da rede',
+      'Implementação de controle de acesso à internet e wireless',
+      'Balanceamento de links para otimização de conectividade'
+    ]
+  }
+];
+
+const certifications = [
+  {
+    title: 'Cybersecurity for Everyone',
+    institution: 'University of Maryland',
+    date: '2023',
+    description: 'Fundamentos abrangentes de defesa contra ataques cibernéticos, incluindo identificação de ameaças, implementação de medidas de segurança e resposta a incidentes.',
+    icon: <Shield className="w-6 h-6 text-portfolio-primary-accent" />
+  },
+  {
+    title: 'Big Data with Spark and Hadoop',
+    institution: 'IBM',
+    date: '2022',
+    description: 'Processamento e análise de grandes volumes de dados utilizando Apache Spark e Hadoop, incluindo técnicas de machine learning e visualização de dados.',
+    icon: <Database className="w-6 h-6 text-portfolio-primary-accent" />
+  },
+  {
+    title: 'Advanced Network Security',
+    institution: 'Cisco',
+    date: '2021',
+    description: 'Implementação avançada de segurança em redes corporativas, configuração de firewalls, IDS/IPS e técnicas de prevenção contra ataques.',
+    icon: <Network className="w-6 h-6 text-portfolio-primary-accent" />
+  },
+  {
+    title: 'Linux System Administration',
+    institution: 'Red Hat',
+    date: '2020',
+    description: 'Administração completa de sistemas Linux, incluindo gerenciamento de usuários, configuração de serviços e automação de tarefas.',
+    icon: <Award className="w-6 h-6 text-portfolio-primary-accent" />
   }
 ];
 
@@ -158,11 +232,11 @@ const Resume = () => {
   return (
     <div className="space-y-12">
       <header>
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Resume</h2>
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Resume</h2>
       </header>
 
       <section>
-        <div className="text-gray-600 space-y-4">
+        <div className="text-gray-600 dark:text-gray-300 space-y-4">
           <p>Especialista em Tecnologia da Informação com mais de duas décadas de experiência, possuindo habilidades valiosas em TI, segurança de sistemas e gestão de projetos. Conhecimento aprofundado em redes IP/MPLS, configuração de equipamentos Huawei, protocolos de roteamento BGP/OSPF e solução de problemas em ambientes de rede complexos.</p>
           <p>Liderou projetos de grande escala como a Expansão Nacional da Banda Larga e integração de redes terrestres e satelitais (ANGOSAT-2), impactando mais de 7 milhões de utilizadores. Possui certificações em cibersegurança, Big Data com Spark e Hadoop, e especialização em administração de sistemas Linux e Windows.</p>
         </div>
@@ -170,7 +244,7 @@ const Resume = () => {
 
       <section>
         <div className="flex items-center gap-3 mb-6">
-          <h3 className="text-xl font-semibold text-gray-800">Educação</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Educação</h3>
         </div>
         <div className="space-y-6">
           {education.map((item, index) => (
@@ -185,16 +259,27 @@ const Resume = () => {
       </section>
 
       <section>
-        <div className="flex items-center gap-3 mb-6">
-          <h3 className="text-xl font-semibold text-gray-800">Experiência Profissional</h3>
+        <div className="flex items-center gap-3 mb-8">
+          <Briefcase className="w-5 h-5 text-portfolio-primary-accent" />
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Experiência Profissional</h3>
         </div>
-        <div className="space-y-6">
-          {experience.map((item, index) => (
-            <TimelineItem 
+        <Timeline items={timelineExperience} />
+      </section>
+
+      <section>
+        <div className="flex items-center gap-3 mb-6">
+          <Award className="w-5 h-5 text-portfolio-primary-accent" />
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Certificações</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {certifications.map((cert, index) => (
+            <CertificationCard
               key={index}
-              title={item.title}
-              period={item.period}
-              description={item.description}
+              title={cert.title}
+              institution={cert.institution}
+              date={cert.date}
+              description={cert.description}
+              icon={cert.icon}
             />
           ))}
         </div>
