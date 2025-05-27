@@ -67,8 +67,11 @@ const Portfolio = () => {
 
   return (
     <div className="space-y-12">
-      <header>
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Portfolio</h2>
+      <header className="text-center">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">Portfolio</h2>
+        <p className="text-gray-500 text-base leading-relaxed max-w-4xl mx-auto">
+          Com mais de 20 anos de experiência em TI, lidero projetos de segurança de rede, infraestrutura e conectividade em larga escala. Este portfólio mostra como transformei tecnologia em impacto real em Angola — da mitigação de ataques DDoS à inclusão digital via satélite.
+        </p>
       </header>
 
       <section>
