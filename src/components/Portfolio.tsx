@@ -7,47 +7,47 @@ const categories = ["All", "Development", "Management", "Infrastructure"];
 
 const projects = [
   {
-    image: 'https://i.postimg.cc/qRHpHMyd/project-1.jpg',
+    image: '/assets/projects/system-integration.jpg',
     title: 'System Integration Project',
     category: 'Development'
   },
   {
-    image: 'https://i.postimg.cc/bNrcM2Wt/project-2.png',
+    image: '/assets/projects/enterprise-crm.jpg',
     title: 'Enterprise CRM Implementation',
     category: 'Management'
   },
   {
-    image: 'https://i.postimg.cc/L8PK7nV7/network-infrastructure.jpg',
+    image: '/assets/projects/network-infrastructure.jpg',
     title: 'Network Infrastructure Upgrade',
     category: 'Infrastructure'
   },
   {
-    image: 'https://i.postimg.cc/dtpXxNGb/project-4.png',
+    image: '/assets/projects/custom-erp.jpg',
     title: 'Custom ERP Solution',
     category: 'Development'
   },
   {
-    image: 'https://i.postimg.cc/d1JW0mh4/database-migration.jpg',
+    image: '/assets/projects/database-migration.jpg',
     title: 'Database Migration & Optimization',
     category: 'Infrastructure'
   },
   {
-    image: 'https://i.postimg.cc/qR1DX1kZ/project-6.png',
+    image: '/assets/projects/project-management.jpg',
     title: 'Project Management Office Setup',
     category: 'Management'
   },
   {
-    image: 'https://i.postimg.cc/Kj4q9tjc/project-7.png',
+    image: '/assets/projects/api-development.jpg',
     title: 'API Development',
     category: 'Development'
   },
   {
-    image: 'https://i.postimg.cc/cC17Vd0V/cloud-migration.jpg',
+    image: '/assets/projects/cloud-migration.jpg',
     title: 'Cloud Migration Strategy',
     category: 'Infrastructure'
   },
   {
-    image: 'https://i.postimg.cc/7LxNsSQv/project-9.png',
+    image: '/assets/projects/agile-transformation.jpg',
     title: 'Agile Transformation',
     category: 'Management'
   }
