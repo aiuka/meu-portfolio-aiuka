@@ -1,15 +1,17 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'; // Esta linha é crucial
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig({
-  plugins: [react()],
+  base: '/meu-portfolio-aiuka/',
   server: {
     host: '::',
-    port: 8080
+    port: 8080,
   },
+  plugins: [react()],
   resolve: {
     alias: {
-      '@': '/src'
-    }
-  }
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
 });
