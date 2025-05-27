@@ -1,7 +1,9 @@
 
 import React from 'react';
 import ProjectCard from './ProjectCard';
+import ProjectModal from './ProjectModal';
 import { useProjectFilter } from '../hooks/useProjectFilter';
+import { useProjectModal, ProjectDetails } from '../hooks/useProjectModal';
 
 const categories = ["All", "Development", "Management", "Infrastructure"];
 
@@ -9,47 +11,110 @@ const projects = [
   {
     image: '/assets/projects/system-integration.jpg',
     title: 'System Integration Project',
-    category: 'Development'
+    category: 'Development',
+    details: {
+      title: 'Projeto Iluminar Angola',
+      stack: 'Huawei NE40E, DWDM, IP/MPLS, BGP, Firewalls',
+      duration: 'Janeiro 2024 - atual',
+      contribution: 'Implementação de conectividade satélite nacional com ANGOSAT-2',
+      impact: 'Mais de 7 milhões de utilizadores conectados em zonas remotas'
+    }
   },
   {
     image: '/assets/projects/enterprise-crm.jpg',
     title: 'Enterprise CRM Implementation',
-    category: 'Management'
+    category: 'Management',
+    details: {
+      title: 'Implementação CRM Empresarial',
+      stack: 'Salesforce, API REST, Microsoft Azure, PowerBI',
+      duration: 'Março 2023 - Dezembro 2023',
+      contribution: 'Liderança na migração de dados e integração de sistemas legados',
+      impact: 'Aumento de 40% na eficiência de vendas e gestão de clientes'
+    }
   },
   {
     image: '/assets/projects/network-infrastructure.jpg',
     title: 'Network Infrastructure Upgrade',
-    category: 'Infrastructure'
+    category: 'Infrastructure',
+    details: {
+      title: 'Modernização de Infraestrutura de Rede',
+      stack: 'Cisco Catalyst 9000, Fortinet FortiGate, VMware vSphere',
+      duration: 'Junho 2023 - Outubro 2023',
+      contribution: 'Arquitetura e implementação de rede de alta disponibilidade',
+      impact: 'Redução de 60% no tempo de inatividade e aumento de segurança'
+    }
   },
   {
     image: '/assets/projects/custom-erp.jpg',
     title: 'Custom ERP Solution',
-    category: 'Development'
+    category: 'Development',
+    details: {
+      title: 'Solução ERP Personalizada',
+      stack: 'React, Node.js, PostgreSQL, Docker, Kubernetes',
+      duration: 'Setembro 2022 - Maio 2023',
+      contribution: 'Desenvolvimento full-stack e arquitetura de microserviços',
+      impact: 'Automação de 80% dos processos administrativos da empresa'
+    }
   },
   {
     image: '/assets/projects/database-migration.jpg',
     title: 'Database Migration & Optimization',
-    category: 'Infrastructure'
+    category: 'Infrastructure',
+    details: {
+      title: 'Migração e Otimização de Base de Dados',
+      stack: 'Oracle 19c, MongoDB, Redis, Apache Spark',
+      duration: 'Fevereiro 2023 - Julho 2023',
+      contribution: 'Estratégia de migração zero-downtime e otimização de performance',
+      impact: 'Melhoria de 300% na velocidade de consultas e redução de custos'
+    }
   },
   {
     image: '/assets/projects/project-management.jpg',
     title: 'Project Management Office Setup',
-    category: 'Management'
+    category: 'Management',
+    details: {
+      title: 'Criação do Project Management Office',
+      stack: 'Jira, Confluence, MS Project, Agile/Scrum metodologias',
+      duration: 'Janeiro 2022 - Dezembro 2022',
+      contribution: 'Estruturação de processos PMO e formação de equipas',
+      impact: 'Aumento de 50% na taxa de sucesso de projetos e entrega no prazo'
+    }
   },
   {
     image: '/assets/projects/api-development.jpg',
     title: 'API Development',
-    category: 'Development'
+    category: 'Development',
+    details: {
+      title: 'Desenvolvimento de APIs Corporativas',
+      stack: 'Node.js, Express, GraphQL, AWS Lambda, API Gateway',
+      duration: 'Abril 2023 - Setembro 2023',
+      contribution: 'Arquitetura e desenvolvimento de APIs RESTful e GraphQL',
+      impact: 'Integração de 15+ sistemas empresariais e redução de latência'
+    }
   },
   {
     image: '/assets/projects/cloud-migration.jpg',
     title: 'Cloud Migration Strategy',
-    category: 'Infrastructure'
+    category: 'Infrastructure',
+    details: {
+      title: 'Estratégia de Migração para Cloud',
+      stack: 'AWS, Terraform, Jenkins, Docker, Monitoring tools',
+      duration: 'Maio 2022 - Março 2023',
+      contribution: 'Planeamento e execução de migração cloud híbrida',
+      impact: 'Redução de 45% nos custos operacionais e maior escalabilidade'
+    }
   },
   {
     image: '/assets/projects/agile-transformation.jpg',
     title: 'Agile Transformation',
-    category: 'Management'
+    category: 'Management',
+    details: {
+      title: 'Transformação Ágil Organizacional',
+      stack: 'Scrum, Kanban, DevOps practices, Azure DevOps',
+      duration: 'Agosto 2021 - Junho 2022',
+      contribution: 'Liderança na implementação de metodologias ágeis',
+      impact: 'Redução de 35% no time-to-market e melhoria na satisfação da equipa'
+    }
   }
 ];
 
@@ -60,6 +125,8 @@ const Portfolio = () => {
     handleFilterChange, 
     toggleMobileFilter 
   } = useProjectFilter("All");
+
+  const { isModalOpen, selectedProject, openModal, closeModal } = useProjectModal();
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
@@ -141,10 +208,18 @@ const Portfolio = () => {
               image={project.image}
               title={project.title}
               category={project.category}
+              projectDetails={project.details}
+              onClick={openModal}
             />
           ))}
         </div>
       </section>
+
+      <ProjectModal 
+        isOpen={isModalOpen}
+        project={selectedProject}
+        onClose={closeModal}
+      />
     </div>
   );
 };
