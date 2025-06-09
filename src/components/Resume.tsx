@@ -33,7 +33,7 @@ const education = [
 
 const timelineExperience = [
   {
-    position: 'Especialista em Tecnologia da Informação / Técnico de IP/MPLS',
+    position: 'Information Technology Specialist / analista de segurança',
     company: 'Angola Telecom E.P.',
     period: '2017 - Presente',
     location: 'Luanda, Angola',
@@ -106,7 +106,7 @@ const certifications = [
 
 const experience = [
   {
-    title: 'Especialista em Tecnologia da Informação / Técnico de IP/MPLS',
+    title: 'Information Technology Specialist / analista de segurança',
     period: '2017 - Presente',
     description: 'Angola Telecom E.P.: Configuração e manutenção de redes MPLS para garantir alta disponibilidade e desempenho. Implementação e monitoramento de protocolos de roteamento dinâmico BGP e OSPF. Gerenciamento de redes LAN e WAN, incluindo segmentação de VLANs e suporte a IPv6. Administração de equipamentos Huawei para otimização da infraestrutura de rede. Desenvolvimento e implementação de políticas de segurança da informação para ambientes IP/MPLS.'
   },
