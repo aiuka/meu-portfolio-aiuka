@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
@@ -18,18 +17,6 @@ const projects = [
       duration: 'Janeiro 2024 - atual',
       contribution: 'Implementação de conectividade satélite nacional com ANGOSAT-2',
       impact: 'Mais de 7 milhões de utilizadores conectados em zonas remotas'
-    }
-  },
-  {
-    image: '/assets/projects/enterprise-crm.jpg',
-    title: 'Enterprise CRM Implementation',
-    category: 'Management',
-    details: {
-      title: 'Implementação CRM Empresarial',
-      stack: 'Salesforce, API REST, Microsoft Azure, PowerBI',
-      duration: 'Março 2023 - Dezembro 2023',
-      contribution: 'Liderança na migração de dados e integração de sistemas legados',
-      impact: 'Aumento de 40% na eficiência de vendas e gestão de clientes'
     }
   },
   {
