@@ -1,5 +1,5 @@
 
-import { toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -15,7 +15,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <div className="min-h-screen w-full bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
-        <toaster />
+        <Toaster />
         <Sonner />
         <ThemeToggle />
         <BrowserRouter>
