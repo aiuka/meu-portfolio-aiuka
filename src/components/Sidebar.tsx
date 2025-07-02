@@ -7,6 +7,7 @@ import {
   MapPin, 
   ChevronDown, 
   ChevronUp,
+  Facebook,
   Twitter,
   Instagram
 } from 'lucide-react';
@@ -28,7 +29,7 @@ const Sidebar = () => {
           />
           
           <p className="text-sm font-medium text-portfolio-primary-accent mb-3 animate-fade-in">
-            Information Technology Specialist
+            Técnico de Redes de Pacotes/Seg Infor
           </p>
           
           <button 
@@ -90,7 +91,7 @@ const Sidebar = () => {
             </div>
             <div>
               <p className="text-xs text-gray-500">Location</p>
-              <p className="text-sm text-gray-700">Avenida Fidel De Castro, Belas, Urbanização Boa Vida, Condomínio 3, Casa 3C4, Luanda, Angola</p>
+              <p className="text-sm text-gray-700">Rua Comandante Gika, Edifício Garden Towers, Torre B, 18º andar, Luanda, Angola</p>
             </div>
           </li>
         </ul>
@@ -100,10 +101,15 @@ const Sidebar = () => {
         <ul className="flex justify-center gap-3">
           <li className="animate-fade-in" style={{ animationDelay: '500ms' }}>
             <a href="#" className="social-link hover:scale-110 transition-transform">
-              <Twitter size={18} />
+              <Facebook size={18} />
             </a>
           </li>
           <li className="animate-fade-in" style={{ animationDelay: '600ms' }}>
+            <a href="#" className="social-link hover:scale-110 transition-transform">
+              <Twitter size={18} />
+            </a>
+          </li>
+          <li className="animate-fade-in" style={{ animationDelay: '700ms' }}>
             <a href="#" className="social-link hover:scale-110 transition-transform">
               <Instagram size={18} />
             </a>

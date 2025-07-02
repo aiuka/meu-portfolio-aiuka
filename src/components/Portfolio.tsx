@@ -1,107 +1,55 @@
+
 import React from 'react';
 import ProjectCard from './ProjectCard';
-import ProjectModal from './ProjectModal';
 import { useProjectFilter } from '../hooks/useProjectFilter';
-import { useProjectModal, ProjectDetails } from '../hooks/useProjectModal';
 
 const categories = ["All", "Development", "Management", "Infrastructure"];
 
 const projects = [
   {
-    image: '/assets/projects/system-integration.jpg',
+    image: 'https://i.postimg.cc/qRHpHMyd/project-1.jpg',
     title: 'System Integration Project',
-    category: 'Development',
-    details: {
-      title: 'Projeto Iluminar Angola',
-      stack: 'Huawei NE40E, DWDM, IP/MPLS, BGP, Firewalls',
-      duration: 'Janeiro 2024 - atual',
-      contribution: 'Implementação de conectividade satélite nacional com ANGOSAT-2',
-      impact: 'Mais de 7 milhões de utilizadores conectados em zonas remotas'
-    }
+    category: 'Development'
   },
   {
-    image: '/assets/projects/network-infrastructure.jpg',
+    image: 'https://i.postimg.cc/bNrcM2Wt/project-2.png',
+    title: 'Enterprise CRM Implementation',
+    category: 'Management'
+  },
+  {
+    image: 'https://i.postimg.cc/L8PK7nV7/network-infrastructure.jpg',
     title: 'Network Infrastructure Upgrade',
-    category: 'Infrastructure',
-    details: {
-      title: 'Modernização de Infraestrutura de Rede',
-      stack: 'Cisco Catalyst 9000, Fortinet FortiGate, VMware vSphere',
-      duration: 'Junho 2023 - Outubro 2023',
-      contribution: 'Arquitetura e implementação de rede de alta disponibilidade',
-      impact: 'Redução de 60% no tempo de inatividade e aumento de segurança'
-    }
+    category: 'Infrastructure'
   },
   {
-    image: '/assets/projects/custom-erp.jpg',
+    image: 'https://i.postimg.cc/dtpXxNGb/project-4.png',
     title: 'Custom ERP Solution',
-    category: 'Development',
-    details: {
-      title: 'Solução ERP Personalizada',
-      stack: 'React, Node.js, PostgreSQL, Docker, Kubernetes',
-      duration: 'Setembro 2022 - Maio 2023',
-      contribution: 'Desenvolvimento full-stack e arquitetura de microserviços',
-      impact: 'Automação de 80% dos processos administrativos da empresa'
-    }
+    category: 'Development'
   },
   {
-    image: '/assets/projects/database-migration.jpg',
+    image: 'https://i.postimg.cc/d1JW0mh4/database-migration.jpg',
     title: 'Database Migration & Optimization',
-    category: 'Infrastructure',
-    details: {
-      title: 'Migração e Otimização de Base de Dados',
-      stack: 'Oracle 19c, MongoDB, Redis, Apache Spark',
-      duration: 'Fevereiro 2023 - Julho 2023',
-      contribution: 'Estratégia de migração zero-downtime e otimização de performance',
-      impact: 'Melhoria de 300% na velocidade de consultas e redução de custos'
-    }
+    category: 'Infrastructure'
   },
   {
-    image: '/assets/projects/project-management.jpg',
+    image: 'https://i.postimg.cc/qR1DX1kZ/project-6.png',
     title: 'Project Management Office Setup',
-    category: 'Management',
-    details: {
-      title: 'Criação do Project Management Office',
-      stack: 'Jira, Confluence, MS Project, Agile/Scrum metodologias',
-      duration: 'Janeiro 2022 - Dezembro 2022',
-      contribution: 'Estruturação de processos PMO e formação de equipas',
-      impact: 'Aumento de 50% na taxa de sucesso de projetos e entrega no prazo'
-    }
+    category: 'Management'
   },
   {
-    image: '/assets/projects/api-development.jpg',
+    image: 'https://i.postimg.cc/Kj4q9tjc/project-7.png',
     title: 'API Development',
-    category: 'Development',
-    details: {
-      title: 'Desenvolvimento de APIs Corporativas',
-      stack: 'Node.js, Express, GraphQL, AWS Lambda, API Gateway',
-      duration: 'Abril 2023 - Setembro 2023',
-      contribution: 'Arquitetura e desenvolvimento de APIs RESTful e GraphQL',
-      impact: 'Integração de 15+ sistemas empresariais e redução de latência'
-    }
+    category: 'Development'
   },
   {
-    image: '/assets/projects/cloud-migration.jpg',
+    image: 'https://i.postimg.cc/cC17Vd0V/cloud-migration.jpg',
     title: 'Cloud Migration Strategy',
-    category: 'Infrastructure',
-    details: {
-      title: 'Estratégia de Migração para Cloud',
-      stack: 'AWS, Terraform, Jenkins, Docker, Monitoring tools',
-      duration: 'Maio 2022 - Março 2023',
-      contribution: 'Planeamento e execução de migração cloud híbrida',
-      impact: 'Redução de 45% nos custos operacionais e maior escalabilidade'
-    }
+    category: 'Infrastructure'
   },
   {
-    image: '/assets/projects/agile-transformation.jpg',
+    image: 'https://i.postimg.cc/7LxNsSQv/project-9.png',
     title: 'Agile Transformation',
-    category: 'Management',
-    details: {
-      title: 'Transformação Ágil Organizacional',
-      stack: 'Scrum, Kanban, DevOps practices, Azure DevOps',
-      duration: 'Agosto 2021 - Junho 2022',
-      contribution: 'Liderança na implementação de metodologias ágeis',
-      impact: 'Redução de 35% no time-to-market e melhoria na satisfação da equipa'
-    }
+    category: 'Management'
   }
 ];
 
@@ -113,19 +61,14 @@ const Portfolio = () => {
     toggleMobileFilter 
   } = useProjectFilter("All");
 
-  const { isModalOpen, selectedProject, openModal, closeModal } = useProjectModal();
-
   const filteredProjects = activeCategory === "All" 
     ? projects 
     : projects.filter(project => project.category === activeCategory);
 
   return (
     <div className="space-y-12">
-      <header className="text-center">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Portfolio</h2>
-        <p className="text-gray-500 text-base leading-relaxed max-w-4xl mx-auto">
-          Com mais de 20 anos de experiência em TI, lidero projetos de segurança de rede, infraestrutura e conectividade em larga escala. Este portfólio mostra como transformei tecnologia em impacto real em Angola — da mitigação de ataques DDoS à inclusão digital via satélite.
-        </p>
+      <header>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">Portfolio</h2>
       </header>
 
       <section>
@@ -195,18 +138,10 @@ const Portfolio = () => {
               image={project.image}
               title={project.title}
               category={project.category}
-              projectDetails={project.details}
-              onClick={openModal}
             />
           ))}
         </div>
       </section>
-
-      <ProjectModal 
-        isOpen={isModalOpen}
-        project={selectedProject}
-        onClose={closeModal}
-      />
     </div>
   );
 };
