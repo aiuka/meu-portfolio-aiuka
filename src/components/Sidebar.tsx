@@ -91,7 +91,7 @@ const Sidebar = () => {
             </div>
             <div>
               <p className="text-xs text-gray-500">Location</p>
-              <p className="text-sm text-gray-700">Rua Comandante Gika, Edifício Garden Towers, Torre B, 18º andar, Luanda, Angola</p>
+              <p className="text-sm text-gray-700">Avenida Fidel De Castro, Belas, Urbanização Boa Vida, Condomínio 3, Casa 3C4, Luanda, Angola</p>
             </div>
           </li>
         </ul>
