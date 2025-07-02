@@ -7,7 +7,7 @@ import {
   MapPin, 
   ChevronDown, 
   ChevronUp,
-  Facebook,
+  Linkedin,
   Twitter,
   Instagram
 } from 'lucide-react';
@@ -101,7 +101,7 @@ const Sidebar = () => {
         <ul className="flex justify-center gap-3">
           <li className="animate-fade-in" style={{ animationDelay: '500ms' }}>
             <a href="#" className="social-link hover:scale-110 transition-transform">
-              <Facebook size={18} />
+              <Linkedin size={18} />
             </a>
           </li>
           <li className="animate-fade-in" style={{ animationDelay: '600ms' }}>
