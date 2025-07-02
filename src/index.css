@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,35 +7,43 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 224 71% 4%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 224 71% 4%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 250 83% 73%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
+    --popover-foreground: 224 71% 4%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 9% 46%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+    
+    /* Modern Portfolio Design System */
+    --portfolio-primary: 262 83% 58%;
+    --portfolio-primary-light: 262 83% 68%;
+    --portfolio-primary-dark: 262 83% 48%;
+    --portfolio-accent: 267 84% 81%;
+    --portfolio-neutral-50: 220 13% 98%;
+    --portfolio-neutral-100: 220 13% 95%;
+    --portfolio-neutral-200: 220 13% 91%;
+    --portfolio-neutral-300: 220 9% 82%;
+    --portfolio-neutral-400: 220 9% 65%;
+    --portfolio-neutral-500: 220 9% 46%;
+    --portfolio-neutral-600: 220 13% 36%;
+    --portfolio-neutral-700: 220 14% 24%;
+    --portfolio-neutral-800: 220 27% 12%;
+    --portfolio-neutral-900: 224 71% 4%;
+    
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -46,33 +55,25 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 250 83% 73%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
+    --card: 224 71% 4%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 217 11% 65%;
+    --accent: 215 28% 17%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 262 83% 58%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -95,64 +96,83 @@
   * {
     @apply border-border;
   }
-
+  
   body {
-    @apply bg-gray-100 text-foreground;
+    @apply bg-portfolio-neutral-50 text-portfolio-neutral-900;
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
 @layer components {
   .progress-bar {
-    @apply relative h-2 bg-gray-200 rounded-full overflow-hidden;
+    @apply relative h-3 bg-portfolio-neutral-200 rounded-full overflow-hidden;
   }
   
   .progress-fill {
-    @apply absolute h-full bg-portfolio-primary-accent;
+    @apply absolute h-full bg-gradient-to-r from-portfolio-primary to-portfolio-primary-light;
   }
   
   .service-item {
-    @apply flex gap-4 p-4 sm:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow;
+    @apply group relative flex items-start gap-6 p-8 rounded-2xl border border-portfolio-neutral-200 bg-white hover:border-portfolio-primary/20 transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .service-item::before {
+    @apply content-[''] absolute inset-0 rounded-2xl bg-gradient-to-br from-portfolio-primary/5 to-portfolio-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300;
   }
   
   .service-icon {
-    @apply flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-indigo-100 text-portfolio-primary-accent;
+    @apply relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-portfolio-primary to-portfolio-primary-light text-white shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300;
   }
   
   .nav-item {
-    @apply relative cursor-pointer px-2 sm:px-4 py-2 transition-colors text-sm sm:text-base whitespace-nowrap;
+    @apply relative cursor-pointer px-2 sm:px-4 py-2 transition-all duration-300 text-sm sm:text-base whitespace-nowrap font-semibold;
   }
   
   .nav-item.active {
-    @apply text-portfolio-primary-accent font-medium;
+    @apply text-portfolio-primary font-bold;
   }
   
   .timeline-item {
-    @apply relative pl-8 pb-8 border-l border-gray-200 last:border-0 last:pb-0;
+    @apply relative pl-10 pb-8 border-l-2 border-gradient-to-b from-portfolio-primary/50 to-portfolio-neutral-300 last:border-0 last:pb-0;
   }
   
   .timeline-item::before {
     content: '';
-    @apply absolute top-0 left-[-5px] w-[10px] h-[10px] rounded-full bg-portfolio-primary-accent;
+    @apply absolute top-0 left-[-10px] w-5 h-5 rounded-full bg-gradient-to-br from-portfolio-primary to-portfolio-primary-light border-4 border-white shadow-lg;
   }
   
   .skill-bar {
-    @apply w-full h-2 sm:h-3 bg-gray-200 rounded-full overflow-hidden;
+    @apply w-full h-3 bg-portfolio-neutral-200 rounded-full overflow-hidden;
   }
   
   .skill-progress {
-    @apply h-full bg-portfolio-primary-accent;
+    @apply h-full bg-gradient-to-r from-portfolio-primary to-portfolio-primary-light;
   }
   
   .portfolio-item {
-    @apply relative overflow-hidden rounded-lg;
+    @apply group relative overflow-hidden rounded-2xl bg-white shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
   }
   
   .portfolio-overlay {
-    @apply absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center opacity-0 transition-all duration-300;
+    @apply absolute inset-0 bg-gradient-to-br from-portfolio-primary/90 to-portfolio-primary-dark/90 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center backdrop-blur-sm;
   }
   
   .social-link {
-    @apply flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-200 text-gray-600 hover:bg-portfolio-primary-accent hover:text-white transition-colors;
+    @apply flex items-center justify-center w-12 h-12 rounded-xl bg-portfolio-neutral-100 text-portfolio-neutral-600 hover:bg-gradient-to-br hover:from-portfolio-primary hover:to-portfolio-primary-light hover:text-white transition-all duration-300 transform hover:scale-110;
+  }
+
+  /* Modern utilities */
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/80 border border-white/20 shadow-xl;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-portfolio-primary to-portfolio-primary-light bg-clip-text text-transparent;
+  }
+  
+  .floating-card {
+    @apply hover:shadow-2xl hover:-translate-y-2 transition-all duration-300;
   }
 
   /* Responsive utilities */
@@ -175,10 +195,11 @@
 }
 
 @layer utilities {
+  /* Modern Animation keyframes */
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -188,7 +209,7 @@
   
   @keyframes slideInRight {
     from {
-      transform: translateX(-10px);
+      transform: translateX(100%);
       opacity: 0;
     }
     to {
@@ -197,6 +218,35 @@
     }
   }
   
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes glowPulse {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--portfolio-primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--portfolio-primary) / 0.5);
+    }
+  }
+
   @keyframes ping-slow {
     0% {
       transform: scale(1);
@@ -214,22 +264,34 @@
 
   @keyframes avatarPulse {
     0% {
-      box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+      box-shadow: 0 0 0 0 hsl(var(--portfolio-primary) / 0.4);
     }
     70% {
-      box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+      box-shadow: 0 0 0 10px hsl(var(--portfolio-primary) / 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+      box-shadow: 0 0 0 0 hsl(var(--portfolio-primary) / 0);
     }
   }
   
   .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.8s ease-out forwards;
   }
   
   .animate-slide-in-right {
-    animation: slideInRight 0.3s ease-out forwards;
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite;
   }
   
   .animate-ping-slow {
