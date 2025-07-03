@@ -21,7 +21,7 @@ const About = () => {
         <h3 className="text-2xl font-bold bg-gradient-to-r from-portfolio-primary to-portfolio-primary-light bg-clip-text text-transparent mb-8">What I'm Doing</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="service-item">
+          <div className="group service-item">
             <div className="service-icon">
               <Network size={24} strokeWidth={2} />
             </div>
@@ -31,7 +31,7 @@ const About = () => {
             </div>
           </div>
           
-          <div className="service-item">
+          <div className="group service-item">
             <div className="service-icon">
               <Radio size={24} strokeWidth={2} />
             </div>
@@ -41,7 +41,7 @@ const About = () => {
             </div>
           </div>
           
-          <div className="service-item">
+          <div className="group service-item">
             <div className="service-icon">
               <ShieldCheck size={24} strokeWidth={2} />
             </div>
@@ -51,7 +51,7 @@ const About = () => {
             </div>
           </div>
           
-          <div className="service-item">
+          <div className="group service-item">
             <div className="service-icon">
               <Users size={24} strokeWidth={2} />
             </div>
